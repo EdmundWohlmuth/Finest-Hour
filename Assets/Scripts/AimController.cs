@@ -17,8 +17,8 @@ public class AimController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       TurretRotate(); // currently not working but not nessasary for first playable
-        transform.position = chasis.transform.position;
+       TurretRotate();
+       transform.position = chasis.transform.position;
     }
 
     void TurretRotate()
