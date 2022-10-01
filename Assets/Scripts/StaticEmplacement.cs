@@ -95,4 +95,14 @@ public class StaticEmplacement : MonoBehaviour
             round.GetComponent<BulletScript>().damage = damage;
         }
     }
+
+    private void OnTriggerEnter2D(Collider2D collision) //TEMP DAMAGE (will add take damage script when ready)
+    {
+        Debug.Log("hit trigger");
+
+        if (collision.gameObject.tag == "Explosion")
+        {            
+            Destroy(gameObject);
+        }
+    }
 }

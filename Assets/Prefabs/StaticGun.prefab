@@ -49,7 +49,7 @@ MonoBehaviour:
   minValue: -162
   maxValue: -198
   bullet: {fileID: 4577025315940595177, guid: 6a670777f3051794bab80734cea8af3e, type: 3}
-  reloadTime: 1
+  reloadTime: 3
   muzzle: {fileID: 6497252912799551359}
   tankColliders: {fileID: 6497252913710722821}
   damage: 0
