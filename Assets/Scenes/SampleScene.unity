@@ -4018,8 +4018,8 @@ GameObject:
   - component: {fileID: 1080716476}
   - component: {fileID: 1080716475}
   - component: {fileID: 1080716478}
-  - component: {fileID: 1080716477}
   - component: {fileID: 1080716479}
+  - component: {fileID: 1080716477}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -4104,6 +4104,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26543aeaeb6ea424f80bbf05aedee5bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  chasis: {fileID: 282887343}
+  dmgColor: {r: 0.7924528, g: 0.1981132, b: 0.1981132, a: 1}
+  baseColor: {r: 0.5294118, g: 0.60784316, b: 0.3137255, a: 1}
 --- !u!1 &1130607909
 GameObject:
   m_ObjectHideFlags: 0
