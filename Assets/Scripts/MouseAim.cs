@@ -15,7 +15,7 @@ public class MouseAim : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(mainCamera.ScreenToViewportPoint(Input.mousePosition));
+       // Debug.Log(mainCamera.ScreenToViewportPoint(Input.mousePosition));
         Vector2 mousePosition = mainCamera.ScreenToWorldPoint(Input.mousePosition);
         transform.position = mousePosition;
 

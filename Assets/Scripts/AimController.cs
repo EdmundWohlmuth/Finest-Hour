@@ -5,7 +5,7 @@ using UnityEngine;
 public class AimController : MonoBehaviour
 {
     public GameObject target;
-    float rotationSpeed = .5f;
+    float rotationSpeed = 10f;
     public GameObject chasis;
 
     // Start is called before the first frame update
@@ -17,7 +17,7 @@ public class AimController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        TurretRotate();
+       // TurretRotate(); // currently not working but not nessasary for first playable
     }
 
     void TurretRotate()
