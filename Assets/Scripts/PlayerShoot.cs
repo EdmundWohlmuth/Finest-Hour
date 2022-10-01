@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerShoot : MonoBehaviour
 {
     public GameObject bullet;
-    public float reloadTime = 1f;
+    public float reloadTime = 1;
     public GameObject muzzle;
 
     bool canShoot = true;
@@ -21,11 +21,11 @@ public class PlayerShoot : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        currentDelay -= Time.deltaTime;
         if (Input.GetKeyDown(KeyCode.Mouse0))
-        {
+        {         
             if (!canShoot)
-            {
-                currentDelay -= Time.deltaTime;
+            {               
                 if (currentDelay <= 0)
                 {
                     canShoot = true;
