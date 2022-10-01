@@ -29,6 +29,7 @@ public class PlayerShoot : MonoBehaviour
                 if (currentDelay <= 0)
                 {
                     canShoot = true;
+                    Shoot();
                 }
             }
             else Shoot();
@@ -44,7 +45,7 @@ public class PlayerShoot : MonoBehaviour
 
             GameObject round = Instantiate(bullet);
             round.transform.position = muzzle.transform.position;
-            round.transform.localRotation = muzzle.transform.localRotation;
+            round.transform.rotation = muzzle.transform.rotation;
             round.GetComponent<BulletScript>().startPos = transform.position;
             round.GetComponent<BulletScript>().rb.velocity = transform.up * round.GetComponent<BulletScript>().speed;
 

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BulletScript : MonoBehaviour
 {
-    public float maxDistance = 25;
+    public float maxDistance = 5;
     public float speed = 10;
     public float damage;
 
