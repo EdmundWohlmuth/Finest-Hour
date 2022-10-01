@@ -18,7 +18,6 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        BodySync();
         TankMovement();
     }
 
@@ -51,11 +50,6 @@ public class PlayerMovement : MonoBehaviour
     {
         // aim done indipendantly
         // then turret just looks at target
-    }
-
-    void BodySync()
-    {
-
     }
 
 }

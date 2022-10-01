@@ -22,4 +22,14 @@ public class InterObject : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        Debug.Log("Trigger");
+
+        if (collision.gameObject.tag == "Explosion") {
+
+            Destroy(gameObject);
+        }
+    }
 }
