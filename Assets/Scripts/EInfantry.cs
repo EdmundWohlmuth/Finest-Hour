@@ -36,4 +36,29 @@ public class EInfantry : MonoBehaviour
              
     }
 
+    // --------------------------------- States --------------------------- \\
+
+    // ------------------------------ Take Damage ------------------------- \\
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Explosion")
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    void TakeDamage()
+    {
+        Debug.Log("Infantry took Damage");
+    }
+
 }
