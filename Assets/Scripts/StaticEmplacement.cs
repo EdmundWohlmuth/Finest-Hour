@@ -62,23 +62,20 @@ public class StaticEmplacement : MonoBehaviour
     void AttackCheck()
     {
         currentDelay -= Time.deltaTime;
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+        if (!canShoot)
         {
-            if (!canShoot)
+            if (currentDelay <= 0)
             {
-                if (currentDelay <= 0)
-                {
-                    canShoot = true;
-                    Attack();
-                }
+                canShoot = true;
+                Attack();
             }
-            else Attack();
         }
+        else Attack();
     }
 
     void Attack()
     {
-        if (canTarget)
+        if (canTarget && Player.transform.position.y < transform.position.y)
         {
             canShoot = false;
             currentDelay = reloadTime;
@@ -102,7 +99,7 @@ public class StaticEmplacement : MonoBehaviour
 
         if (collision.gameObject.tag == "Explosion")
         {            
-            Destroy(gameObject);
+            Destroy(tankColliders);
         }
     }
 }

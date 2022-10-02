@@ -22,5 +22,10 @@ public class FollowCam : MonoBehaviour
             pos = new Vector3(transform.position.x, transform.position.y,-10);
             transform.position = pos;
         }
+        else
+        {
+            pos = new Vector3(Player.transform.position.x, transform.position.y, -10);
+            transform.position = pos;
+        }
     }
 }
