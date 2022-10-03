@@ -7057,6 +7057,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 841269867}
     m_Modifications:
     - target: {fileID: 6493747851266135241, guid: ec4891e0c5ce7dd4ea2dc4baa7876f57, type: 3}
+      propertyPath: speed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6493747851266135241, guid: ec4891e0c5ce7dd4ea2dc4baa7876f57, type: 3}
       propertyPath: Player
       value: 
       objectReference: {fileID: 1080716474}

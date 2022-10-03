@@ -12,9 +12,9 @@ public class EInfantry : MonoBehaviour
     float randValueX;
     float randValueY;
 
-    public float speed = 5;
-    public float waypointRefreshTime = 10;
-    float waypointRefresh = 10;
+    public float speed = 1;
+    float runningTime = 0;
+    float runningTimeMax = 10;
 
     enum State
     {
@@ -33,10 +33,72 @@ public class EInfantry : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-             
+        SetState();
+        RunBehavior();    
     }
 
     // --------------------------------- States --------------------------- \\
+
+    void SetState()
+    {
+        if (Vector3.Distance(transform.position, Player.transform.position) < 5)
+        {
+            state = State.Danger;
+        }
+        else state = State.Safe;
+    }
+
+    void RunBehavior()
+    {
+        if (state == State.Safe)
+        {
+            BehaviorSafe();
+        }
+        else if (state == State.Danger)
+        {
+            BehaviorDanger();
+        }
+    }
+
+    void BehaviorSafe()
+    {
+        
+    }
+
+    void BehaviorDanger()
+    {
+        if (firstScare == true)
+        {
+            Debug.Log("Inital scare");
+            firstScare = false;
+            FindFleePos();
+            Movement();
+        }
+        runningTime += Time.deltaTime;
+
+        if (Vector3.Distance(fleePoint, transform.position) < 1 || runningTime >= runningTimeMax)
+        {
+            runningTime = 0;
+            FindFleePos();
+            Movement();
+            Debug.Log(fleePoint);
+        }
+        
+    }
+
+    // ------------------------------- Movement --------------------------- \\
+
+    void FindFleePos()
+    {
+        
+        SetRandom();
+        fleePoint = new Vector3(randValueX, randValueY, 0);       
+    }
+
+    void Movement()
+    {
+
+    }
 
     // ------------------------------ Take Damage ------------------------- \\
 
@@ -54,11 +116,22 @@ public class EInfantry : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        else
+        {
+
+        }
     }
 
     void TakeDamage()
     {
         Debug.Log("Infantry took Damage");
+    }
+
+    // ------------------------------ other ------------------------------- \\
+    void SetRandom()
+    {
+        randValueX = Random.Range(transform.position.x -10, transform.position.x + 10);
+        randValueY = Random.Range(transform.position.y - 10, transform.position.y + 10);
     }
 
 }
