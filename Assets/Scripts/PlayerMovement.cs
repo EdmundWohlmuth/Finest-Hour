@@ -1,11 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class PlayerMovement : MonoBehaviour
 {
     float speed = 1;
     float rotationSpeed = 25;
+
+    public int valorPoints;
+    public TextMeshProUGUI valor;
 
     // Start is called before the first frame update
     void Start()
@@ -17,6 +22,7 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         TankMovement();
+        UpdateValor();
     }
 
     // ------------------------ Tank Chasis Movement ------------------------- \\
@@ -40,5 +46,12 @@ public class PlayerMovement : MonoBehaviour
             float rotation = 1f * rotationSpeed;
             transform.Rotate(Vector3.forward * rotation * Time.deltaTime);
         }
+    }
+
+    // ---------------------------- Add Valor ---------------------------------- \\
+
+    void UpdateValor() // TEMP Point gain
+    {
+        valor.text = "Valor: " + valorPoints;
     }
 }

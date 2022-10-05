@@ -106,6 +106,7 @@ public class EInfantry : MonoBehaviour
     {
         if (collision.gameObject.tag == "Explosion")
         {
+            AddValor();
             Destroy(gameObject);
         }
     }
@@ -114,6 +115,7 @@ public class EInfantry : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
+            AddValor();
             Destroy(gameObject);
         }
         else
@@ -134,4 +136,11 @@ public class EInfantry : MonoBehaviour
         randValueY = Random.Range(transform.position.y - 10, transform.position.y + 10);
     }
 
+    void AddValor()
+    {
+        Player.GetComponent<PlayerMovement>().valorPoints++;
+    }
+
 }
+
+

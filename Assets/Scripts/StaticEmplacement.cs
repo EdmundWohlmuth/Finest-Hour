@@ -96,10 +96,9 @@ public class StaticEmplacement : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision) //TEMP DAMAGE (will add take damage script when ready)
     {
-        Debug.Log("hit trigger");
-
         if (collision.gameObject.tag == "Explosion")
-        {            
+        {
+            Player.GetComponent<PlayerMovement>().valorPoints = Player.GetComponent<PlayerMovement>().valorPoints + 3;
             Destroy(tankColliders);
         }
     }
