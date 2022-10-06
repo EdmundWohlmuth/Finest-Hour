@@ -46,11 +46,15 @@ public class PlayerMovement : MonoBehaviour
             float rotation = 1f * rotationSpeed;
             transform.Rotate(Vector3.forward * rotation * Time.deltaTime);
         }
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            Application.Quit(0);
+        }
     }
 
     // ---------------------------- Add Valor ---------------------------------- \\
 
-    void UpdateValor() // TEMP Point gain
+    void UpdateValor() // TEMP Point gain. Would actually be stored in GameManager
     {
         valor.text = "Valor: " + valorPoints;
     }
