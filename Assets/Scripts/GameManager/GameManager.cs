@@ -4,10 +4,13 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    [Header("Refrences")]
     public GameObject UImanager;
     private UIManager UI;
 
     [Header("PlayerStats")]
+    public float speed;
+    public float rotationSpeed;
     public float maxFuel;
     public int maxHealth;
     public int damageValue;
@@ -46,12 +49,18 @@ public class GameManager : MonoBehaviour
                 Time.timeScale = 1;
                 UI.GamePlayState();
 
+
+
                 break;
             case UIManager.CurrentScreen._Pause:
                 break;
             case UIManager.CurrentScreen._Win:
                 break;
             case UIManager.CurrentScreen._Loose:
+
+                Time.timeScale = 0;
+                UI.LooseState();
+
                 break;
             default:
                 break;
