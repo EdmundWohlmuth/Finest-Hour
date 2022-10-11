@@ -5,15 +5,19 @@ using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 {
+    public UIManager UIManager;
+
     // ----------------------- Scene Changing ------------------ \\
     public void LoadMenus()
     {
         SceneManager.LoadScene("Menus");
+        UIManager.UpgradeState();
     }
 
     public void LoadGamePlay()
     {
         SceneManager.LoadScene("Gameplay");
+        UIManager.GamePlayState();
     }
 
     public void ExitGame()

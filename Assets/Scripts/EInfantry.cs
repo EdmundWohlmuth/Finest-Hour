@@ -89,15 +89,14 @@ public class EInfantry : MonoBehaviour
     // ------------------------------- Movement --------------------------- \\
 
     void FindFleePos()
-    {
-        
+    {       
         SetRandom();
         fleePoint = new Vector3(randValueX, randValueY, 0);       
     }
 
     void Movement()
     {
-
+        
     }
 
     // ------------------------------ Take Damage ------------------------- \\
