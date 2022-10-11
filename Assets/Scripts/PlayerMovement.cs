@@ -6,23 +6,28 @@ using TMPro;
 
 public class PlayerMovement : MonoBehaviour
 {
+    public GameManager gameManager;
     float speed = 1;
     float rotationSpeed = 25;
 
     public int valorPoints;
     public TextMeshProUGUI valor;
 
+    public float fuelValue;
+    public TextMeshProUGUI gas;
+
     // Start is called before the first frame update
     void Start()
     {
-
+        fuelValue = gameManager.maxFuel;
     }
 
     // Update is called once per frame
     void Update()
     {
         TankMovement();
-        UpdateValor();
+        SpendFuel();
+        
     }
 
     // ------------------------ Tank Chasis Movement ------------------------- \\
@@ -52,10 +57,11 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    // ---------------------------- Add Valor ---------------------------------- \\
-
-    void UpdateValor() // TEMP Point gain. Would actually be stored in GameManager
+    void SpendFuel()
     {
-        valor.text = "Valor: " + valorPoints;
+        while (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S))
+        {
+            
+        }
     }
 }

@@ -7,6 +7,11 @@ public class GameManager : MonoBehaviour
     public GameObject UImanager;
     private UIManager UI;
 
+    [Header("PlayerStats")]
+    public float maxFuel;
+    public int maxHealth;
+    public int damageValue;
+
     // Start is called before the first frame update
     void Start()
     {
