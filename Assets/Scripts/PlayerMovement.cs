@@ -6,21 +6,24 @@ using TMPro;
 
 public class PlayerMovement : MonoBehaviour
 {
+    // ui init
     public GameObject gameManager;
     private GameManager GM;
     public GameObject uIManager;
     private UIManager UI;
 
-    public float speed = 1;
-    public float rotationSpeed = 25;
-
     public int valorPoints;
     public TextMeshProUGUI valor;
 
+    // health init
     public int maxHealth;
-
     public int damageValue;
 
+    // speeds init
+    public float speed = 1;
+    public float rotationSpeed = 25;
+
+    // Fuel init
     public float maxFuel;
     public float currentFuel;
     public GameObject gas;

@@ -3435,8 +3435,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 807613674}
   m_LocalRotation: {x: -0, y: -0, z: 0.38268322, w: 0.9238797}
-  m_LocalPosition: {x: -0.9218, y: 37.0028, z: 0}
-  m_LocalScale: {x: 12.064, y: 5, z: 1}
+  m_LocalPosition: {x: -3.4021, y: 34.5225, z: 0}
+  m_LocalScale: {x: 5, y: 5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1130607910}
@@ -4446,8 +4446,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a3a3bccab8108d48938626795613fe7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameManager: {fileID: 0}
+  uIManager: {fileID: 0}
+  speed: 1
+  rotationSpeed: 25
   valorPoints: 0
   valor: {fileID: 0}
+  maxHealth: 0
+  damageValue: 0
+  maxFuel: 0
+  currentFuel: 0
+  gas: {fileID: 0}
+  gasMeter: {fileID: 0}
 --- !u!4 &1080716476
 Transform:
   m_ObjectHideFlags: 0
@@ -7127,6 +7137,14 @@ PrefabInstance:
       propertyPath: Player
       value: 
       objectReference: {fileID: 1080716474}
+    - target: {fileID: 6497252912113193901, guid: aed5eb438a16aa84b9e753953556bbcb, type: 3}
+      propertyPath: maxValue
+      value: -198
+      objectReference: {fileID: 0}
+    - target: {fileID: 6497252912113193901, guid: aed5eb438a16aa84b9e753953556bbcb, type: 3}
+      propertyPath: minValue
+      value: -162
+      objectReference: {fileID: 0}
     - target: {fileID: 6497252913710722821, guid: aed5eb438a16aa84b9e753953556bbcb, type: 3}
       propertyPath: m_Name
       value: StaticGun

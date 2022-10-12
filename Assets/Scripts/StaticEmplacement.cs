@@ -87,10 +87,9 @@ public class StaticEmplacement : MonoBehaviour
             round.GetComponent<BulletScript>().startPos = muzzle.transform.position;
             round.GetComponent<BulletScript>().speed = 5f;
             round.GetComponent<BulletScript>().rb.velocity = muzzle.transform.up * round.GetComponent<BulletScript>().speed;
+            round.GetComponent<BulletScript>().damage = damage;
 
             Physics2D.IgnoreCollision(round.GetComponent<Collider2D>(), tankColliders.GetComponent<Collider2D>());
-
-            round.GetComponent<BulletScript>().damage = damage;
         }
     }
 

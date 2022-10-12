@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TakeDamage : MonoBehaviour
 {
@@ -9,17 +10,37 @@ public class TakeDamage : MonoBehaviour
     public Color baseColor;
     private SpriteRenderer render;
 
+    public int currentHealth;
+    public int maxHealth;
+
+    public GameObject health;
+    public Slider healthBar;
+    public GameObject uIManager;
+    public UIManager UI;
+
     // Start is called before the first frame update
     void Start()
     {
         render = chasis.GetComponent<SpriteRenderer>();
+        currentHealth = GetComponent<PlayerMovement>().maxHealth;
+        maxHealth = GetComponent<PlayerMovement>().maxHealth;
+        uIManager = GameObject.Find("GameManager/UIManager");
+        UI = uIManager.GetComponent<UIManager>();
+
+        // get health ui
+        health = GameObject.Find("GameManager/UIManager/Gameplay/HealthBar");
+        healthBar = health.GetComponent<Slider>();
+        healthBar.maxValue = maxHealth;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Explosion")
         {
-            ReduceHealth();
+            int damageDelt;
+            damageDelt = collision.GetComponent<BulletScript>().damage;
+
+            ReduceHealth(damageDelt);
             StartCoroutine(ShowDamage());
         }
     }
@@ -27,12 +48,22 @@ public class TakeDamage : MonoBehaviour
     IEnumerator ShowDamage()
     {
         render.color = dmgColor;
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.5f);
         render.color = baseColor;
     }
 
-    void ReduceHealth()
+    void ReduceHealth(int damage)
     {
-        Debug.Log("Damage Taken");
+        currentHealth -= damage;
+
+        if (currentHealth <= 0)
+        {
+            currentHealth = 0;
+            UI.LooseState();
+        }
+        else
+        {
+            healthBar.value = currentHealth;
+        }
     }
 }

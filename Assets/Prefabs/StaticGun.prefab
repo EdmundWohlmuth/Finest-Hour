@@ -52,7 +52,7 @@ MonoBehaviour:
   reloadTime: 3
   muzzle: {fileID: 6497252912799551359}
   tankColliders: {fileID: 6497252913710722821}
-  damage: 0
+  damage: 8
 --- !u!1 &6497252912799551359
 GameObject:
   m_ObjectHideFlags: 0

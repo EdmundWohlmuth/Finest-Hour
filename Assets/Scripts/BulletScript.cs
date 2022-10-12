@@ -6,11 +6,13 @@ public class BulletScript : MonoBehaviour
 {
     public float maxDistance = 5;
     public float speed = 10;
-    public float damage;
+    public int damage;
 
     public Vector2 startPos;
     private float traveledDistance = 0;
+
     public Rigidbody2D rb;
+
 
     // Start is called before the first frame update
     void Start()
