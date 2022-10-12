@@ -4,30 +4,43 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
+    [Header("UI / GM Managerment")]
     // ui init
     public GameObject gameManager;
     private GameManager GM;
     public GameObject uIManager;
     private UIManager UI;
 
+    [Header("Character Stats")]
+    // stats init
     public int valorPoints;
     public TextMeshProUGUI valor;
-
-    // health init
     public int maxHealth;
     public int damageValue;
-
-    // speeds init
     public float speed = 1;
     public float rotationSpeed = 25;
 
+    [Header("Fuel Systems")]
     // Fuel init
     public float maxFuel;
     public float currentFuel;
     public GameObject gas;
     public Slider gasMeter;
+
+    [Header("Turret Control")]
+    // aim init
+    public Camera mainCamera;
+    public GameObject crossHair;
+
+    [Header("Shooting")]
+    public GameObject bullet;
+    public float reloadTime = 1;
+    public GameObject muzzle;
+    bool canShoot = true;
+    public GameObject tankColliders;
+    float currentDelay = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -55,6 +68,8 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         TankMovement();
+        Aim();
+        ShootCheck();
         SpendFuel();       
     }
 
@@ -85,6 +100,7 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    // -------------------------------- FUEL ------------------------ \\
     void SpendFuel()
     {
         if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S))
@@ -100,6 +116,47 @@ public class PlayerMovement : MonoBehaviour
             {
                 gasMeter.value = currentFuel;
             }           
+        }
+    }
+
+    // ------------------------------ Turret Movement ----------------------------- \\
+    void Aim()
+    {
+        Vector2 mousePosition = mainCamera.ScreenToWorldPoint(Input.mousePosition);
+        crossHair.transform.position = mousePosition;
+    }
+
+    // --------------------------------- Shooting --------------------------------- \\
+    void ShootCheck()
+    {
+        currentDelay -= Time.deltaTime;
+        if (Input.GetKeyDown(KeyCode.Mouse0))
+        {
+            if (!canShoot)
+            {
+                if (currentDelay <= 0)
+                {
+                    canShoot = true;
+                    Shoot();
+                }
+            }
+            else Shoot();
+        }
+    }
+    void Shoot()
+    {
+        if (canShoot)
+        {
+            canShoot = false;
+            currentDelay = reloadTime;
+
+            GameObject round = Instantiate(bullet);
+            round.transform.position = muzzle.transform.position;
+            round.transform.rotation = muzzle.transform.rotation;
+            round.GetComponent<BulletScript>().startPos = muzzle.transform.position;
+            round.GetComponent<BulletScript>().rb.velocity = muzzle.transform.up * round.GetComponent<BulletScript>().speed;
+
+            Physics2D.IgnoreCollision(round.GetComponent<Collider2D>(), tankColliders.GetComponent<Collider2D>());
         }
     }
 }
