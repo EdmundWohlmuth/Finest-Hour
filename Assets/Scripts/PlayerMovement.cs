@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class PlayerController : MonoBehaviour
+public class PlayerMovement : MonoBehaviour
 {
     [Header("UI / GM Managerment")]
     // ui init
@@ -19,8 +19,8 @@ public class PlayerController : MonoBehaviour
     public TextMeshProUGUI valor;
     public int maxHealth;
     public int damageValue;
-    public float speed = 1;
-    public float rotationSpeed = 25;
+    public float movementSpeed = 1;
+    public float chasisRotationSpeed = 25;
 
     [Header("Fuel Systems")]
     // Fuel init
@@ -33,6 +33,9 @@ public class PlayerController : MonoBehaviour
     // aim init
     public Camera mainCamera;
     public GameObject crossHair;
+    float turretRotationSpeed = 10f;
+    public GameObject turret;
+
 
     [Header("Shooting")]
     public GameObject bullet;
@@ -69,6 +72,7 @@ public class PlayerController : MonoBehaviour
     {
         TankMovement();
         Aim();
+        TurretRotate();
         ShootCheck();
         SpendFuel();       
     }
@@ -78,26 +82,25 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.W))
         {
-            transform.position += transform.up * speed * Time.deltaTime;
+            transform.position += transform.up * movementSpeed * Time.deltaTime;
         }
         if (Input.GetKey(KeyCode.S))
         {
-            transform.position -= transform.up * speed * Time.deltaTime;
+            transform.position -= transform.up * movementSpeed * Time.deltaTime;
         }
         if (Input.GetKey(KeyCode.D))
         {
-            float rotation = -1f * rotationSpeed;
+            float rotation = -1f * chasisRotationSpeed;
             transform.Rotate(Vector3.forward * rotation * Time.deltaTime);
         }
         if (Input.GetKey(KeyCode.A))
         {
-            float rotation = 1f * rotationSpeed;
+            float rotation = 1f * chasisRotationSpeed;
             transform.Rotate(Vector3.forward * rotation * Time.deltaTime);
         }
-        if (Input.GetKeyDown(KeyCode.L))
-        {
-            Application.Quit(0);
-        }
+
+        // moves turret with tank
+        turret.transform.position = transform.position;
     }
 
     // -------------------------------- FUEL ------------------------ \\
@@ -124,6 +127,16 @@ public class PlayerController : MonoBehaviour
     {
         Vector2 mousePosition = mainCamera.ScreenToWorldPoint(Input.mousePosition);
         crossHair.transform.position = mousePosition;
+    }
+    void TurretRotate()
+    {
+        Vector2 relativePos = crossHair.transform.position - turret.transform.position;
+        float angle = Mathf.Atan2(relativePos.x, relativePos.y) * Mathf.Rad2Deg;
+
+        Quaternion rotation = Quaternion.AngleAxis(angle, Vector3.back);
+        Quaternion current = turret.transform.localRotation;
+
+        turret.transform.localRotation = Quaternion.Slerp(current, rotation, turretRotationSpeed * Time.deltaTime);
     }
 
     // --------------------------------- Shooting --------------------------------- \\

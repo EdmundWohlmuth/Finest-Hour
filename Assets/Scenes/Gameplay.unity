@@ -1316,7 +1316,6 @@ GameObject:
   m_Component:
   - component: {fileID: 401356319}
   - component: {fileID: 401356320}
-  - component: {fileID: 401356321}
   m_Layer: 0
   m_Name: Turret
   m_TagString: Player
@@ -1392,20 +1391,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &401356321
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 401356318}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 446396ae0bfab914c921472489a3078c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 477317186}
-  chasis: {fileID: 1080716474}
 --- !u!1001 &403395678
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4437,14 +4422,15 @@ MonoBehaviour:
   valor: {fileID: 0}
   maxHealth: 0
   damageValue: 0
-  speed: 1
-  rotationSpeed: 25
+  movementSpeed: 1
+  chasisRotationSpeed: 25
   maxFuel: 0
   currentFuel: 0
   gas: {fileID: 0}
   gasMeter: {fileID: 0}
   mainCamera: {fileID: 519420031}
   crossHair: {fileID: 477317186}
+  turret: {fileID: 401356318}
   bullet: {fileID: 4577025315940595177, guid: 6a670777f3051794bab80734cea8af3e, type: 3}
   reloadTime: 1
   muzzle: {fileID: 2205780}
