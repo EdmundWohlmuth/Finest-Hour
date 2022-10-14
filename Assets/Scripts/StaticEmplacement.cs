@@ -8,7 +8,6 @@ public class StaticEmplacement : MonoBehaviour
     public GameObject Player;
     private float rotationSpeed = 0.5f;
 
-
     public float minValue;
     public float maxValue;
 
@@ -22,7 +21,10 @@ public class StaticEmplacement : MonoBehaviour
     public GameObject tankColliders;
     float currentDelay = 0;
 
+    //stats
     public int damage;
+    int health = 15;
+
 
     // Start is called before the first frame update
     void Start()
@@ -97,8 +99,20 @@ public class StaticEmplacement : MonoBehaviour
     {
         if (collision.gameObject.tag == "Explosion")
         {
-            Player.GetComponent<PlayerMovement>().valorPoints = Player.GetComponent<PlayerMovement>().valorPoints + 3;
+            int damage = collision.gameObject.GetComponent<BulletScript>().damage;
+            TakeDamage(damage);
+        }
+    }
+
+    void TakeDamage(int damage)
+    {       
+        health -= damage;
+        if (health <= 0)
+        {
+            health = 0;
             Destroy(tankColliders);
         }
+
+        Debug.Log(health);
     }
 }

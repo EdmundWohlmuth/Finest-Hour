@@ -1517,7 +1517,7 @@ MonoBehaviour:
   rotationSpeed: 0
   maxFuel: 25
   maxHealth: 10
-  damageValue: 5
+  damageValue: 4
 --- !u!1 &310708425
 GameObject:
   m_ObjectHideFlags: 0
