@@ -147,5 +147,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 0}
+  valor: {fileID: 5994674724103633436, guid: 4158163069a9c394088ebe6303d0a189, type: 3}
   speed: 5
-  waypointRefreshTime: 10

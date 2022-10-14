@@ -8,6 +8,7 @@ public class EInfantry : MonoBehaviour
     Vector3 fleePoint;
 
     public GameObject Player;
+    public GameObject valor;
     bool firstScare = true;
     float randValueX;
     float randValueY;
@@ -114,6 +115,7 @@ public class EInfantry : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
+            InstantiateValor();
             Destroy(gameObject);
         }
     }
@@ -132,7 +134,8 @@ public class EInfantry : MonoBehaviour
 
     void InstantiateValor()
     {
-
+        GameObject Valor = Instantiate(valor);
+        Valor.transform.position = transform.position;
     }
 
 }
