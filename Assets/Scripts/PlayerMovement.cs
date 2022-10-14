@@ -12,11 +12,12 @@ public class PlayerMovement : MonoBehaviour
     private GameManager GM;
     public GameObject uIManager;
     private UIManager UI;
+    public GameObject valorMenu;
 
     [Header("Character Stats")]
     // stats init
     public int valorPoints;
-    public TextMeshProUGUI valor;
+    public TMP_Text valor;
     public int maxHealth;
     public int damageValue;
     public float movementSpeed = 1;
@@ -61,6 +62,10 @@ public class PlayerMovement : MonoBehaviour
         gasMeter.maxValue = GM.maxFuel;
         gasMeter.value = GM.maxFuel;
 
+        //valor
+        valorMenu = GameObject.Find("GameManager/UIManager/Gameplay/ValorText (TMP)");
+        valor = valorMenu.GetComponent<TMP_Text>();
+
         // set player values
         maxHealth = GM.maxHealth;
         damageValue = GM.damageValue;
@@ -74,7 +79,8 @@ public class PlayerMovement : MonoBehaviour
         Aim();
         TurretRotate();
         ShootCheck();
-        SpendFuel();       
+        SpendFuel();
+        CheckValor();
     }
 
     // ------------------------ Tank Chasis Movement ------------------------- \\
@@ -173,5 +179,12 @@ public class PlayerMovement : MonoBehaviour
 
             Physics2D.IgnoreCollision(round.GetComponent<Collider2D>(), tankColliders.GetComponent<Collider2D>());
         }
+    }
+
+    // -------------------------------- MISC ------------------------------- \\
+
+    void CheckValor()
+    {
+        valor.text = "Valor: " + valorPoints.ToString();
     }
 }
