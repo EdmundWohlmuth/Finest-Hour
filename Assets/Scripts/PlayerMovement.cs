@@ -34,7 +34,7 @@ public class PlayerMovement : MonoBehaviour
     // aim init
     public Camera mainCamera;
     public GameObject crossHair;
-    float turretRotationSpeed = 10f;
+    public float turretRotationSpeed = 10f;
     public GameObject turret;
 
 
@@ -70,6 +70,8 @@ public class PlayerMovement : MonoBehaviour
         maxHealth = GM.maxHealth;
         damageValue = GM.damageValue;
         currentFuel = GM.maxFuel;
+        movementSpeed = GM.speed;
+        valorPoints = GM.totalValor;
     }
 
     // Update is called once per frame
@@ -186,5 +188,6 @@ public class PlayerMovement : MonoBehaviour
     void CheckValor()
     {
         valor.text = "Valor: " + valorPoints.ToString();
+        GM.totalValor = valorPoints;
     }
 }

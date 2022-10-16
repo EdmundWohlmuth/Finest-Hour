@@ -31,6 +31,7 @@ public class TakeDamage : MonoBehaviour
         health = GameObject.Find("GameManager/UIManager/Gameplay/HealthBar");
         healthBar = health.GetComponent<Slider>();
         healthBar.maxValue = maxHealth;
+        healthBar.value = healthBar.maxValue;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
