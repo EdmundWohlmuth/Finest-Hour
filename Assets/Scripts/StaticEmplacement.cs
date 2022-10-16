@@ -7,6 +7,7 @@ public class StaticEmplacement : MonoBehaviour
     // rotation init
     public GameObject Player;
     private float rotationSpeed = 0.5f;
+    public GameObject valor;
 
     public float minValue;
     public float maxValue;
@@ -110,9 +111,19 @@ public class StaticEmplacement : MonoBehaviour
         if (health <= 0)
         {
             health = 0;
+            InstantiateValor();
             Destroy(tankColliders);
         }
 
         Debug.Log(health);
+    }
+
+    void InstantiateValor()
+    {
+        for (int i = 0; i < 3; i++)
+        {
+            GameObject Valor = Instantiate(valor);
+            Valor.transform.position = transform.position;
+        }
     }
 }

@@ -14,6 +14,8 @@ public class GameManager : MonoBehaviour
     public float maxFuel;
     public int maxHealth;
     public int damageValue;
+    public int totalValor;
+
 
     // Start is called before the first frame update
     void Start()
