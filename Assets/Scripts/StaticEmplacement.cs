@@ -55,8 +55,8 @@ public class StaticEmplacement : MonoBehaviour
     {
         Vector2 relativePos = Player.transform.position - transform.position;
         float angle = Mathf.Atan2(relativePos.x, relativePos.y) * Mathf.Rad2Deg;
-        angle = Mathf.Clamp(angle, minValue, maxValue); //Clamp needs some work
-        Debug.Log(angle);
+        angle = Mathf.Clamp(angle, minValue, maxValue);
+
         Quaternion rotation = Quaternion.AngleAxis(angle, Vector3.back);
         Quaternion current = transform.localRotation;
 
@@ -96,7 +96,7 @@ public class StaticEmplacement : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision) //TEMP DAMAGE (will add take damage script when ready)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Explosion")
         {

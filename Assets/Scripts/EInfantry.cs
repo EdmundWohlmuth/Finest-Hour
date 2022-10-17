@@ -82,7 +82,7 @@ public class EInfantry : MonoBehaviour
             runningTime = 0;
             FindFleePos();
             Movement();
-            Debug.Log(fleePoint);
+
         }
         
     }
@@ -92,12 +92,14 @@ public class EInfantry : MonoBehaviour
     void FindFleePos()
     {       
         SetRandom();
-        fleePoint = new Vector3(randValueX, randValueY, 0);       
+        fleePoint = new Vector2(randValueX, randValueY);
     }
 
     void Movement()
     {
-        
+        transform.position = Vector2.MoveTowards(transform.position, fleePoint, speed * Time.deltaTime);
+        Debug.Log("flee point: " + fleePoint);
+        Debug.Log("current pos: " + transform.position);
     }
 
     // ------------------------------ Take Damage ------------------------- \\
