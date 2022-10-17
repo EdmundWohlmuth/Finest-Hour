@@ -4431,6 +4431,7 @@ MonoBehaviour:
   gasMeter: {fileID: 0}
   mainCamera: {fileID: 519420031}
   crossHair: {fileID: 477317186}
+  turretRotationSpeed: 10
   turret: {fileID: 401356318}
   bullet: {fileID: 4577025315940595177, guid: 6a670777f3051794bab80734cea8af3e, type: 3}
   reloadTime: 1
@@ -4650,7 +4651,7 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.5}
+  m_Offset: {x: 0, y: 0.5}
   m_Size: {x: 1, y: 2}
   m_Direction: 0
 --- !u!1001 &1202683689
@@ -6231,6 +6232,14 @@ PrefabInstance:
       propertyPath: Player
       value: 
       objectReference: {fileID: 1080716474}
+    - target: {fileID: 6497252912113193901, guid: aed5eb438a16aa84b9e753953556bbcb, type: 3}
+      propertyPath: maxValue
+      value: -30
+      objectReference: {fileID: 0}
+    - target: {fileID: 6497252912113193901, guid: aed5eb438a16aa84b9e753953556bbcb, type: 3}
+      propertyPath: minValue
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 6497252913710722821, guid: aed5eb438a16aa84b9e753953556bbcb, type: 3}
       propertyPath: m_Name
       value: StaticGun (1)
@@ -7101,17 +7110,33 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 841269867}
     m_Modifications:
+    - target: {fileID: 6497252912113193900, guid: aed5eb438a16aa84b9e753953556bbcb, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6497252912113193900, guid: aed5eb438a16aa84b9e753953556bbcb, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6497252912113193900, guid: aed5eb438a16aa84b9e753953556bbcb, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6497252912113193901, guid: aed5eb438a16aa84b9e753953556bbcb, type: 3}
       propertyPath: Player
       value: 
       objectReference: {fileID: 1080716474}
     - target: {fileID: 6497252912113193901, guid: aed5eb438a16aa84b9e753953556bbcb, type: 3}
       propertyPath: maxValue
-      value: -198
+      value: -30
       objectReference: {fileID: 0}
     - target: {fileID: 6497252912113193901, guid: aed5eb438a16aa84b9e753953556bbcb, type: 3}
       propertyPath: minValue
-      value: -162
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 6497252912799551356, guid: aed5eb438a16aa84b9e753953556bbcb, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.75
       objectReference: {fileID: 0}
     - target: {fileID: 6497252913710722821, guid: aed5eb438a16aa84b9e753953556bbcb, type: 3}
       propertyPath: m_Name

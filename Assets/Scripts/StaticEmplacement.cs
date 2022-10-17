@@ -56,7 +56,7 @@ public class StaticEmplacement : MonoBehaviour
         Vector2 relativePos = Player.transform.position - transform.position;
         float angle = Mathf.Atan2(relativePos.x, relativePos.y) * Mathf.Rad2Deg;
         angle = Mathf.Clamp(angle, minValue, maxValue); //Clamp needs some work
-
+        Debug.Log(angle);
         Quaternion rotation = Quaternion.AngleAxis(angle, Vector3.back);
         Quaternion current = transform.localRotation;
 
@@ -89,7 +89,7 @@ public class StaticEmplacement : MonoBehaviour
             round.transform.rotation = muzzle.transform.rotation;
             round.GetComponent<BulletScript>().startPos = muzzle.transform.position;
             round.GetComponent<BulletScript>().speed = 5f;
-            round.GetComponent<BulletScript>().rb.velocity = muzzle.transform.up * round.GetComponent<BulletScript>().speed;
+            round.GetComponent<BulletScript>().rb.velocity = -muzzle.transform.up * round.GetComponent<BulletScript>().speed;
             round.GetComponent<BulletScript>().damage = damage;
 
             Physics2D.IgnoreCollision(round.GetComponent<Collider2D>(), tankColliders.GetComponent<Collider2D>());
