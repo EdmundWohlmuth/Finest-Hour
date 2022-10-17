@@ -120,14 +120,14 @@ public class PlayerMovement : MonoBehaviour
 
             if (currentFuel <= 0)
             {
-                currentFuel = 0;
+                currentFuel = 0; // "out of gas UI"
                 UI.LooseState();
             }
             else
             {
                 gasMeter.value = currentFuel;
             }           
-        }
+        } // if fuel is low add blibking, engine sputtering sounds etc.
     }
 
     // ------------------------------ Turret Movement ----------------------------- \\

@@ -37,7 +37,10 @@ public class BulletScript : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        disableBullet();
+        if (collision.tag != "Valor")
+        {
+            disableBullet();
+        }
     }
 
     void disableBullet()

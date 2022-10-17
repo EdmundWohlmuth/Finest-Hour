@@ -59,12 +59,12 @@ public class TakeDamage : MonoBehaviour
 
         if (currentHealth <= 0)
         {
-            currentHealth = 0;
+            currentHealth = 0; // add ui text "Tank Destoryed"
             UI.LooseState();
         }
         else
         {
-            healthBar.value = currentHealth;
+            healthBar.value = currentHealth; // if health is low add blinking text, audio
         }
     }
 }
