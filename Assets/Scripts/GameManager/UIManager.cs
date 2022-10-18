@@ -9,6 +9,7 @@ public class UIManager : MonoBehaviour
     public Canvas Upgrade;
     public Canvas GamePlay;
     public Canvas Loose;
+    public Canvas Save;
 
     public enum CurrentScreen
     {
@@ -17,7 +18,8 @@ public class UIManager : MonoBehaviour
         _GamePlay,
         _Pause,
         _Win,
-        _Loose
+        _Loose,
+        _SaveGame
     }
     public CurrentScreen currentState;
 
@@ -33,6 +35,7 @@ public class UIManager : MonoBehaviour
         GamePlay.enabled = false;
         Upgrade.enabled = false;
         Loose.enabled = false;
+        Save.enabled = false;
 
         currentState = CurrentScreen._MainMenu;
     }
@@ -43,6 +46,7 @@ public class UIManager : MonoBehaviour
         GamePlay.enabled = false;
         Upgrade.enabled = true;
         Loose.enabled = false;
+        Save.enabled = false;
 
         currentState = CurrentScreen._Upgrade;
     }
@@ -53,6 +57,7 @@ public class UIManager : MonoBehaviour
         GamePlay.enabled = true;
         Upgrade.enabled = false;
         Loose.enabled = false;
+        Save.enabled = false;
 
         currentState = CurrentScreen._GamePlay;
     }
@@ -63,7 +68,16 @@ public class UIManager : MonoBehaviour
         GamePlay.enabled = false;
         Upgrade.enabled = false;
         Loose.enabled = true;
+        Save.enabled = false;
 
         currentState = CurrentScreen._Loose;
     }
+
+    public void SaveState()
+    {
+        Save.enabled = true;
+
+        currentState = CurrentScreen._SaveGame;
+    }
 }
+

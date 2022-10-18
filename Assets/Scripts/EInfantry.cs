@@ -63,15 +63,13 @@ public class EInfantry : MonoBehaviour
 
     void BehaviorSafe()
     {
-        Debug.Log("safe");
+
     }
 
     void BehaviorDanger()
     {
-        Debug.Log("danger will robinson");
         if (firstScare == true)
         {
-            Debug.Log("Inital scare");
             firstScare = false;
             FindFleePos();
             Movement();
