@@ -4423,7 +4423,7 @@ MonoBehaviour:
   valor: {fileID: 0}
   maxHealth: 0
   damageValue: 0
-  movementSpeed: 1
+  movementSpeed: 0.5
   chasisRotationSpeed: 25
   maxFuel: 0
   currentFuel: 0

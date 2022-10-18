@@ -13,7 +13,7 @@ public class EInfantry : MonoBehaviour
     float randValueX;
     float randValueY;
 
-    public float speed = 1;
+    public float speed = 1f;
     float runningTime = 0;
     float runningTimeMax = 10;
 
@@ -42,7 +42,7 @@ public class EInfantry : MonoBehaviour
 
     void SetState()
     {
-        if (Vector3.Distance(transform.position, Player.transform.position) < 5)
+        if (Vector3.Distance(transform.position, Player.transform.position) <= 5)
         {
             state = State.Danger;
         }
@@ -63,11 +63,12 @@ public class EInfantry : MonoBehaviour
 
     void BehaviorSafe()
     {
-        
+        Debug.Log("safe");
     }
 
     void BehaviorDanger()
     {
+        Debug.Log("danger will robinson");
         if (firstScare == true)
         {
             Debug.Log("Inital scare");
@@ -98,8 +99,7 @@ public class EInfantry : MonoBehaviour
     void Movement()
     {
         transform.position = Vector2.MoveTowards(transform.position, fleePoint, speed * Time.deltaTime);
-        Debug.Log("flee point: " + fleePoint);
-        Debug.Log("current pos: " + transform.position);
+        Debug.Log("running");
     }
 
     // ------------------------------ Take Damage ------------------------- \\

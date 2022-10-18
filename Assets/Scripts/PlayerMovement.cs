@@ -20,7 +20,7 @@ public class PlayerMovement : MonoBehaviour
     public TMP_Text valor;
     public int maxHealth;
     public int damageValue;
-    public float movementSpeed = 1;
+    public float movementSpeed = 0.5f;
     public float chasisRotationSpeed = 25;
 
     [Header("Fuel Systems")]
