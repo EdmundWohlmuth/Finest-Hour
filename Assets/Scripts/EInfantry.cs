@@ -13,7 +13,7 @@ public class EInfantry : MonoBehaviour
     float randValueX;
     float randValueY;
 
-    public float speed = 1f;
+    public float speed = 0.01f;
     float runningTime = 0;
     float runningTimeMax = 10;
 
@@ -63,7 +63,7 @@ public class EInfantry : MonoBehaviour
 
     void BehaviorSafe()
     {
-
+        transform.position = Vector2.MoveTowards(transform.position, startPos, speed * Time.deltaTime);
     }
 
     void BehaviorDanger()
@@ -72,7 +72,6 @@ public class EInfantry : MonoBehaviour
         {
             firstScare = false;
             FindFleePos();
-            Movement();
         }
         runningTime += Time.deltaTime;
 
@@ -80,10 +79,8 @@ public class EInfantry : MonoBehaviour
         {
             runningTime = 0;
             FindFleePos();
-            Movement();
-
         }
-        
+        Movement();
     }
 
     // ------------------------------- Movement --------------------------- \\
@@ -128,8 +125,8 @@ public class EInfantry : MonoBehaviour
     // ------------------------------ other ------------------------------- \\
     void SetRandom()
     {
-        randValueX = Random.Range(transform.position.x -10, transform.position.x + 10);
-        randValueY = Random.Range(transform.position.y - 10, transform.position.y + 10);
+        randValueX = Random.Range(transform.position.x -3, transform.position.x + 3);
+        randValueY = Random.Range(transform.position.y - 3, transform.position.y + 3);
     }
 
     void InstantiateValor()
