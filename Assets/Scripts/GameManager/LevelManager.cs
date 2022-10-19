@@ -6,12 +6,14 @@ using UnityEngine.SceneManagement;
 public class LevelManager : MonoBehaviour
 {
     public UIManager UIManager;
+    public GameManager gameManager;
 
     // ----------------------- Scene Changing ------------------ \\
     public void LoadMenus()
     {
         SceneManager.LoadScene("Menus");
         UIManager.UpgradeState();
+        gameManager.SaveGame();
     }
 
     public void LoadGamePlay()
@@ -22,6 +24,12 @@ public class LevelManager : MonoBehaviour
 
     public void ExitGame()
     {
+        Application.Quit();
+    }
+
+    public void SaveAndQuit()
+    {
+        gameManager.SaveGame();
         Application.Quit();
     }
 }

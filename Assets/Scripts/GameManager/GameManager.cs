@@ -141,7 +141,7 @@ public class GameManager : MonoBehaviour
 
         bf.Serialize(file, data);
         file.Close();
-}
+    }
 
     public void LoadGame()
     {
