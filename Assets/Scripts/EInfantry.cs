@@ -94,7 +94,6 @@ public class EInfantry : MonoBehaviour
     void Movement()
     {
         transform.position = Vector2.MoveTowards(transform.position, fleePoint, speed * Time.deltaTime);
-        Debug.Log("running");
     }
 
     // ------------------------------ Take Damage ------------------------- \\

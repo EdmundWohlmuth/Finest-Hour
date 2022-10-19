@@ -43,7 +43,7 @@ public class StaticEmplacement : MonoBehaviour
     void DistanceCheck()
     {
         float dist = Vector3.Distance(Player.transform.position, transform.position); //determin distance from player
-        if (dist <= 6)
+        if (dist <= 7)
         {
             canTarget = true;
             AimAtPlayer();
@@ -88,7 +88,7 @@ public class StaticEmplacement : MonoBehaviour
             round.transform.position = muzzle.transform.position;
             round.transform.rotation = muzzle.transform.rotation;
             round.GetComponent<BulletScript>().startPos = muzzle.transform.position;
-            round.GetComponent<BulletScript>().speed = 5f;
+            round.GetComponent<BulletScript>().speed = 8f;
             round.GetComponent<BulletScript>().rb.velocity = -muzzle.transform.up * round.GetComponent<BulletScript>().speed;
             round.GetComponent<BulletScript>().damage = damage;
 
