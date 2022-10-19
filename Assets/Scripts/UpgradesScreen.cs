@@ -20,9 +20,9 @@ public class UpgradesScreen : MonoBehaviour
     public int speedStep = 0;
     [SerializeField] float speedStepIncrease = 0.25f;
     public int DamageStep = 0;
-    [SerializeField] int DamageStepIncrease = 15;
+    [SerializeField] int DamageStepIncrease = 2;
     public int HealthStep = 0;
-    [SerializeField] int healthStepIncrease = 15;
+    [SerializeField] int healthStepIncrease = 5;
 
     [Header("Price Text Element")]
     public TMP_Text fuelPrice;

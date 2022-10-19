@@ -74,11 +74,19 @@ public class GameManager : MonoBehaviour
 
                 Time.timeScale = 1;
                 UI.GamePlayState();
+                if (Input.GetKeyDown(KeyCode.Escape))
+                {
+                    UI.PauseState();
+                }
 
                 break;
             case UIManager.CurrentScreen._Pause:
 
                 Time.timeScale = 0;
+                if (Input.GetKeyDown(KeyCode.Escape))
+                {
+                    UI.GamePlayState();
+                }
 
                 break;
             case UIManager.CurrentScreen._Win:
@@ -100,7 +108,7 @@ public class GameManager : MonoBehaviour
 
     void PullPlayerValues()
     {
-        speed = PC.movementSpeed;
+        speed = PC.movementSpeed; // Do I need all this? Shouldn't I just be checking for valor?
         turretRotationSpeed = PC.turretRotationSpeed;
         rotationSpeed = PC.chasisRotationSpeed;
         maxFuel = PC.maxFuel;
