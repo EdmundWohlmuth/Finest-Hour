@@ -27,6 +27,7 @@ public class GameManager : MonoBehaviour
     public float maxFuel;
     public int maxHealth;
     public int damageValue;
+    public float reloadSpeed;
     public int totalValor;
 
 
@@ -117,6 +118,7 @@ public class GameManager : MonoBehaviour
         totalValor = PC.valorPoints;
         rotationSpeed = PC.chasisRotationSpeed;
         turretRotationSpeed = PC.turretRotationSpeed;
+        reloadSpeed = PC.reloadTime;
 
         // set text
         totalValorText.text = "Total Valor: " + totalValor.ToString();
@@ -150,7 +152,7 @@ public class GameManager : MonoBehaviour
         data.HealthStep = upgrade.HealthStep;
         data.chasisRotationStep = upgrade.rotateStep;
         data.turretRotationStep = upgrade.turretStep;
-        data.protectionStep = upgrade.protectionStep;
+        data.reloadStep = upgrade.reloadStep;
         data.valorStep = upgrade.valorStep;
         
 
@@ -184,7 +186,7 @@ public class GameManager : MonoBehaviour
             upgrade.HealthStep = data.HealthStep;
             upgrade.rotateStep = data.chasisRotationStep;
             upgrade.turretStep = data.turretRotationStep;
-            upgrade.protectionStep = data.protectionStep;
+            upgrade.reloadStep = data.reloadStep;
             upgrade.valorStep = data.valorStep;
 
         }
@@ -215,7 +217,7 @@ public class GameManager : MonoBehaviour
         public int HealthStep;
         public int turretRotationStep;
         public int chasisRotationStep;
-        public int protectionStep;
+        public int reloadStep;
         public int valorStep;
     }
 }

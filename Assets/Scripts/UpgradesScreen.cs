@@ -15,7 +15,7 @@ public class UpgradesScreen : MonoBehaviour
     public List<int> healthPrices = new List<int>(5);
     public List<int> turretPrices = new List<int>(5);
     public List<int> rotationPrices = new List<int>(5);
-    public List<int> protectionPrices = new List<int>(1);
+    public List<int> ReloadPrices = new List<int>(5);
     public List<int> valorPrices = new List<int>(2);
 
     [Header("Price Steps")]
@@ -31,7 +31,8 @@ public class UpgradesScreen : MonoBehaviour
     [SerializeField] float turretStepIncrease = 2f;
     public int rotateStep = 0;
     [SerializeField] float rotationStepIncrease = 10f;
-    public int protectionStep = 0;
+    public int reloadStep = 0;
+    [SerializeField] float reloadStepIncrease = -0.3f;
     public int valorStep = 0;
     [SerializeField] int valorStepIncrease = 1;
 
@@ -42,7 +43,7 @@ public class UpgradesScreen : MonoBehaviour
     public TMP_Text healthPrice;
     public TMP_Text turretPrice;
     public TMP_Text rotatePrice;
-    public TMP_Text protectionPrice;
+    public TMP_Text reloadPrice;
     public TMP_Text valorPrice;
 
     [Header("Step Text Element")]
@@ -52,7 +53,7 @@ public class UpgradesScreen : MonoBehaviour
     public TMP_Text healthStepText;
     public TMP_Text turretStepText;
     public TMP_Text rotateStepText;
-    public TMP_Text protectionStepText;
+    public TMP_Text relaodStepText;
     public TMP_Text valorStepText;
 
 
@@ -126,11 +127,13 @@ public class UpgradesScreen : MonoBehaviour
         }
     }
 
-    public void UpgradeTankTrapProtection()
+    public void UpgradeReloadSpeed()
     {
-        if (GM.totalValor >= protectionPrices[protectionStep])
+        if (GM.totalValor >= ReloadPrices[reloadStep])
         {
-            
+            GM.reloadSpeed += ReloadPrices[reloadStep];
+            GM.totalValor -= ReloadPrices[reloadStep];
+            reloadStep++;
         }
     }
 
@@ -157,8 +160,8 @@ public class UpgradesScreen : MonoBehaviour
         turretStepText.text = turretStep + "/5";
         rotatePrice.text = "Price: " + rotationPrices[rotateStep].ToString();
         rotateStepText.text = rotateStep + "/5";
-        protectionPrice.text = "Price: " + protectionPrices[protectionStep].ToString();
-        protectionStepText.text = protectionStep + "/5";
+        reloadPrice.text = "Price: " + ReloadPrices[reloadStep].ToString();
+        relaodStepText.text = reloadStep + "/5";
         valorPrice.text = valorPrices[valorStep].ToString();
         valorStepText.text = valorStep + "/5";
     }

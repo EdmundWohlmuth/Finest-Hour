@@ -1378,7 +1378,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 0/1
+  m_text: 0/5
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1662,6 +1662,7 @@ MonoBehaviour:
   maxFuel: 25
   maxHealth: 10
   damageValue: 4
+  reloadSpeed: 0
   totalValor: 0
 --- !u!1 &310708425
 GameObject:
@@ -1933,7 +1934,7 @@ GameObject:
   - component: {fileID: 390741254}
   - component: {fileID: 390741253}
   m_Layer: 0
-  m_Name: TankTrapUpgradeButton (7)
+  m_Name: ReloadUpgradeButton (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2008,7 +2009,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 430335321}
         m_TargetAssemblyTypeName: UpgradesScreen, Assembly-CSharp
-        m_MethodName: UpgradeTankTrapProtection
+        m_MethodName: UpgradeReloadSpeed
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2177,7 +2178,7 @@ MonoBehaviour:
   healthPrices: 0400000008000000100000002000000040000000
   turretPrices: 0400000008000000100000002000000040000000
   rotationPrices: 0400000008000000100000002000000040000000
-  protectionPrices: 1e000000
+  ReloadPrices: 0400000008000000100000002000000040000000
   valorPrices: 3200000064000000
   fuelStep: 0
   fuelIncrease: 15
@@ -2191,7 +2192,8 @@ MonoBehaviour:
   turretStepIncrease: 0.25
   rotateStep: 0
   rotationStepIncrease: 1
-  protectionStep: 0
+  reloadStep: 0
+  reloadStepIncrease: 2
   valorStep: 0
   valorStepIncrease: 1
   fuelPrice: {fileID: 893536828}
@@ -2200,7 +2202,7 @@ MonoBehaviour:
   healthPrice: {fileID: 688671119}
   turretPrice: {fileID: 589093155}
   rotatePrice: {fileID: 874483233}
-  protectionPrice: {fileID: 962619834}
+  reloadPrice: {fileID: 962619834}
   valorPrice: {fileID: 2132798787}
   fuelStepText: {fileID: 448813518}
   speedStepText: {fileID: 105333314}
@@ -2208,7 +2210,7 @@ MonoBehaviour:
   healthStepText: {fileID: 804497935}
   turretStepText: {fileID: 1146596354}
   rotateStepText: {fileID: 1706976220}
-  protectionStepText: {fileID: 268225766}
+  relaodStepText: {fileID: 268225766}
   valorStepText: {fileID: 1732229599}
 --- !u!1 &440401947
 GameObject:
@@ -3427,7 +3429,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Tank Trap Protection
+  m_text: Improve Reload Speed
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

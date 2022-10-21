@@ -73,8 +73,8 @@ public class PlayerMovement : MonoBehaviour
         movementSpeed = GM.speed;
         chasisRotationSpeed = GM.rotationSpeed;
         turretRotationSpeed = GM.turretRotationSpeed;
+        reloadTime = GM.reloadSpeed + 2;
         valorPoints = GM.totalValor;
-
     }
 
     // Update is called once per frame
