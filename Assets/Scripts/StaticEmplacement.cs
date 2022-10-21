@@ -26,11 +26,17 @@ public class StaticEmplacement : MonoBehaviour
     public int damage;
     int health = 15;
 
+    // Damage flash
+    public GameObject Dmgflash;
+    public SpriteRenderer ren;
+    public Color dmgColor;
+    public Color baseColor;
+
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        ren.color = baseColor;
     }
 
     // Update is called once per frame
@@ -92,7 +98,7 @@ public class StaticEmplacement : MonoBehaviour
             round.GetComponent<BulletScript>().rb.velocity = -muzzle.transform.up * round.GetComponent<BulletScript>().speed;
             round.GetComponent<BulletScript>().damage = damage;
 
-            Physics2D.IgnoreCollision(round.GetComponent<Collider2D>(), tankColliders.GetComponent<Collider2D>());
+           // Physics2D.IgnoreCollision(round.GetComponent<Collider2D>(), tankColliders.GetComponent<Collider2D>());
         }
     }
 
@@ -102,6 +108,7 @@ public class StaticEmplacement : MonoBehaviour
         {
             int damage = collision.gameObject.GetComponent<BulletScript>().damage;
             TakeDamage(damage);
+            StartCoroutine(ShowDamage());
         }
     }
 
@@ -125,5 +132,12 @@ public class StaticEmplacement : MonoBehaviour
             GameObject Valor = Instantiate(valor);
             Valor.transform.position = transform.position;
         }
+    }
+
+    IEnumerator ShowDamage()
+    {
+        ren.color = dmgColor;
+        yield return new WaitForSeconds(0.5f);
+        ren.color = baseColor;
     }
 }

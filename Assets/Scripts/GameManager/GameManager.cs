@@ -115,6 +115,8 @@ public class GameManager : MonoBehaviour
         maxHealth = PC.maxHealth;
         damageValue = PC.damageValue;
         totalValor = PC.valorPoints;
+        rotationSpeed = PC.chasisRotationSpeed;
+        turretRotationSpeed = PC.turretRotationSpeed;
 
         // set text
         totalValorText.text = "Total Valor: " + totalValor.ToString();
@@ -146,6 +148,11 @@ public class GameManager : MonoBehaviour
         data.speedStep = upgrade.speedStep;
         data.DamageStep = upgrade.DamageStep;
         data.HealthStep = upgrade.HealthStep;
+        data.chasisRotationStep = upgrade.rotateStep;
+        data.turretRotationStep = upgrade.turretStep;
+        data.protectionStep = upgrade.protectionStep;
+        data.valorStep = upgrade.valorStep;
+        
 
         bf.Serialize(file, data);
         file.Close();
@@ -175,6 +182,11 @@ public class GameManager : MonoBehaviour
             upgrade.speedStep = data.speedStep;
             upgrade.DamageStep = data.DamageStep;
             upgrade.HealthStep = data.HealthStep;
+            upgrade.rotateStep = data.chasisRotationStep;
+            upgrade.turretStep = data.turretRotationStep;
+            upgrade.protectionStep = data.protectionStep;
+            upgrade.valorStep = data.valorStep;
+
         }
 
     }
@@ -201,5 +213,9 @@ public class GameManager : MonoBehaviour
         public int speedStep;
         public int DamageStep;
         public int HealthStep;
+        public int turretRotationStep;
+        public int chasisRotationStep;
+        public int protectionStep;
+        public int valorStep;
     }
 }

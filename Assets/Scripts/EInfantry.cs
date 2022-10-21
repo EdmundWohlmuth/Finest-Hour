@@ -7,6 +7,7 @@ public class EInfantry : MonoBehaviour
     Vector3 startPos;
     Vector3 fleePoint;
 
+    public GameObject barrier;
     public GameObject Player;
     public GameObject valor;
     bool firstScare = true;
@@ -27,7 +28,8 @@ public class EInfantry : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Physics.IgnoreLayerCollision(6, 7);
+        barrier = GameObject.Find("Main Camera/Collider");
+        Physics2D.IgnoreCollision(GetComponent<Collider2D>(), barrier.GetComponent<Collider2D>());
         startPos = transform.position;
         state = State.Safe;
     }
@@ -36,7 +38,8 @@ public class EInfantry : MonoBehaviour
     void Update()
     {
         SetState();
-        RunBehavior();    
+        RunBehavior();
+
     }
 
     // --------------------------------- States --------------------------- \\

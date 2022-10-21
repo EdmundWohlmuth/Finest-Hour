@@ -71,7 +71,10 @@ public class PlayerMovement : MonoBehaviour
         damageValue = GM.damageValue;
         currentFuel = GM.maxFuel;
         movementSpeed = GM.speed;
+        chasisRotationSpeed = GM.rotationSpeed;
+        turretRotationSpeed = GM.turretRotationSpeed;
         valorPoints = GM.totalValor;
+
     }
 
     // Update is called once per frame

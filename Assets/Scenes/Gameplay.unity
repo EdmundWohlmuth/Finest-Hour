@@ -1216,6 +1216,10 @@ PrefabInstance:
       propertyPath: Player
       value: 
       objectReference: {fileID: 1080716474}
+    - target: {fileID: 6493747851266135241, guid: ec4891e0c5ce7dd4ea2dc4baa7876f57, type: 3}
+      propertyPath: barrier
+      value: 
+      objectReference: {fileID: 1279439212}
     - target: {fileID: 6493747851266135246, guid: ec4891e0c5ce7dd4ea2dc4baa7876f57, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -17494,6 +17498,10 @@ PrefabInstance:
       propertyPath: Player
       value: 
       objectReference: {fileID: 1080716474}
+    - target: {fileID: 6493747851266135241, guid: ec4891e0c5ce7dd4ea2dc4baa7876f57, type: 3}
+      propertyPath: barrier
+      value: 
+      objectReference: {fileID: 1279439212}
     - target: {fileID: 6493747851266135246, guid: ec4891e0c5ce7dd4ea2dc4baa7876f57, type: 3}
       propertyPath: m_RootOrder
       value: 1
