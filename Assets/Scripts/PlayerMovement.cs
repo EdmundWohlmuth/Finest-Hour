@@ -130,7 +130,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 gasMeter.value = currentFuel;
             }           
-        } // if fuel is low add blibking, engine sputtering sounds etc.
+        } // if fuel is low add blinking, engine sputtering sounds etc.
     }
 
     // ------------------------------ Turret Movement ----------------------------- \\

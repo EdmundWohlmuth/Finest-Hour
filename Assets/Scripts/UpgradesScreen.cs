@@ -28,9 +28,9 @@ public class UpgradesScreen : MonoBehaviour
     public int HealthStep = 0;
     [SerializeField] int healthStepIncrease = 5;
     public int turretStep = 0;
-    [SerializeField] float turretStepIncrease = 0.25f;
+    [SerializeField] float turretStepIncrease = 2f;
     public int rotateStep = 0;
-    [SerializeField] float rotationStepIncrease = 1f;
+    [SerializeField] float rotationStepIncrease = 10f;
     public int protectionStep = 0;
     public int valorStep = 0;
     [SerializeField] int valorStepIncrease = 1;
