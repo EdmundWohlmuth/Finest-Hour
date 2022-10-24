@@ -1666,6 +1666,7 @@ MonoBehaviour:
   reloadSpeed: 0
   totalValor: 0
   valorGained: 0
+  valorMultiplier: 1
 --- !u!1 &310708425
 GameObject:
   m_ObjectHideFlags: 0
@@ -2147,7 +2148,7 @@ Canvas:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 430335315}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_RenderMode: 0
   m_Camera: {fileID: 0}
@@ -2187,7 +2188,7 @@ MonoBehaviour:
   speedStep: 0
   speedStepIncrease: 0.25
   DamageStep: 0
-  DamageStepIncrease: 15
+  DamageStepIncrease: 2
   HealthStep: 0
   healthStepIncrease: 15
   turretStep: 0
@@ -5794,9 +5795,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1781384252}
-        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
-        m_MethodName: UpgradeState
+      - m_Target: {fileID: 310708427}
+        m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
+        m_MethodName: LoadGamePlay
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -10317,7 +10318,7 @@ Canvas:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1922859793}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 0
   m_Camera: {fileID: 0}

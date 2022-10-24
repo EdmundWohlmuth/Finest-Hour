@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3041641741065765595}
   - component: {fileID: 6913684686154573309}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Dmgui
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6497252912113193900}
   - component: {fileID: 6497252912113193901}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: BarrelParent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -151,7 +151,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6497252912799551356}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: muzzle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -183,7 +183,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6497252913025545374}
   - component: {fileID: 6497252913025545375}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Barrel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -268,7 +268,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6497252913589448045}
   - component: {fileID: 6497252913589448034}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: shield
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -352,7 +352,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6497252913662844415}
   - component: {fileID: 6497252913662844412}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: leg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -437,7 +437,7 @@ GameObject:
   - component: {fileID: 6497252913710722840}
   - component: {fileID: 6497252913710722843}
   - component: {fileID: 6497252913710722842}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: StaticGun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -509,7 +509,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6497252913722645711}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Legs
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -543,7 +543,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6497252914204423484}
   - component: {fileID: 6497252914204423485}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: leg (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
