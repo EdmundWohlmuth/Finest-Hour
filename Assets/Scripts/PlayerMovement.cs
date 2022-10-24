@@ -22,6 +22,7 @@ public class PlayerMovement : MonoBehaviour
     public int damageValue;
     public float movementSpeed = 0.5f;
     public float chasisRotationSpeed = 25;
+    public int valorMultiplier;
 
     [Header("Fuel Systems")]
     // Fuel init

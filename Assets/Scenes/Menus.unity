@@ -1653,6 +1653,7 @@ MonoBehaviour:
   Player: {fileID: 0}
   valorText: {fileID: 174762313}
   totalValorText: {fileID: 280470330}
+  valorGainedText: {fileID: 1156666467}
   UpgradeScript: {fileID: 0}
   upgrade: {fileID: 0}
   continueButton: {fileID: 960344262}
@@ -1664,6 +1665,7 @@ MonoBehaviour:
   damageValue: 4
   reloadSpeed: 0
   totalValor: 0
+  valorGained: 0
 --- !u!1 &310708425
 GameObject:
   m_ObjectHideFlags: 0

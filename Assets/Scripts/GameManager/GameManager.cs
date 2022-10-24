@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
     private PlayerMovement PC;
     public TMP_Text valorText;
     public TMP_Text totalValorText;
+    public TMP_Text valorGainedText;
     public GameObject UpgradeScript;
     public UpgradesScreen upgrade;
     public Button continueButton;
@@ -29,6 +30,8 @@ public class GameManager : MonoBehaviour
     public int damageValue;
     public float reloadSpeed;
     public int totalValor;
+    public int valorGained;
+    public int valorMultiplier;
 
 
     // Start is called before the first frame update
@@ -61,7 +64,7 @@ public class GameManager : MonoBehaviour
                     continueButton.interactable = true;
                 }
                 else continueButton.interactable = false;
-
+                valorGained = 0;
 
                 break;
             case UIManager.CurrentScreen._Upgrade:
@@ -69,6 +72,7 @@ public class GameManager : MonoBehaviour
                 Time.timeScale = 1;
                 UI.UpgradeState();
                 UpgradesScreen();
+                valorGained = 0;
 
                 break;
             case UIManager.CurrentScreen._GamePlay:
@@ -88,6 +92,7 @@ public class GameManager : MonoBehaviour
                 {
                     UI.GamePlayState();
                 }
+                valorGained = 0;
 
                 break;
             case UIManager.CurrentScreen._Win:
@@ -109,19 +114,24 @@ public class GameManager : MonoBehaviour
 
     void PullPlayerValues()
     {
-        speed = PC.movementSpeed; // Do I need all this? Shouldn't I just be checking for valor?
-        turretRotationSpeed = PC.turretRotationSpeed;
-        rotationSpeed = PC.chasisRotationSpeed;
-        maxFuel = PC.maxFuel;
-        maxHealth = PC.maxHealth;
-        damageValue = PC.damageValue;
-        totalValor = PC.valorPoints;
-        rotationSpeed = PC.chasisRotationSpeed;
-        turretRotationSpeed = PC.turretRotationSpeed;
-        reloadSpeed = PC.reloadTime;
+        if (PC != null)
+        {
+            speed = PC.movementSpeed; // Do I need all this? Shouldn't I just be checking for valor?
+            turretRotationSpeed = PC.turretRotationSpeed;
+            rotationSpeed = PC.chasisRotationSpeed;
+            maxFuel = PC.maxFuel;
+            maxHealth = PC.maxHealth;
+            damageValue = PC.damageValue;
+            totalValor = PC.valorPoints;
+            rotationSpeed = PC.chasisRotationSpeed;
+            turretRotationSpeed = PC.turretRotationSpeed;
+            reloadSpeed = PC.reloadTime;
+            valorMultiplier = PC.valorMultiplier;
+        }
 
         // set text
         totalValorText.text = "Total Valor: " + totalValor.ToString();
+        valorGainedText.text = "Valor Gained: " + valorGained.ToString();
     }
 
     void showGainedValor()
@@ -144,6 +154,7 @@ public class GameManager : MonoBehaviour
         data.maxHealth = maxHealth;
         data.damageValue = damageValue;
         data.totalValor = totalValor;
+        data.valorMultiplier = valorMultiplier;
 
         // Upgrade Data
         data.fuelStep = upgrade.fuelStep;
@@ -178,6 +189,7 @@ public class GameManager : MonoBehaviour
             maxHealth = data.maxHealth;
             damageValue = data.damageValue;
             totalValor = data.totalValor;
+            valorMultiplier = data.valorMultiplier;
 
             // Upgrade Data
             upgrade.fuelStep = data.fuelStep;
@@ -219,5 +231,6 @@ public class GameManager : MonoBehaviour
         public int chasisRotationStep;
         public int reloadStep;
         public int valorStep;
+        public int valorMultiplier;
     }
 }

@@ -30,7 +30,7 @@ public class UpgradesScreen : MonoBehaviour
     public int turretStep = 0;
     [SerializeField] float turretStepIncrease = 2f;
     public int rotateStep = 0;
-    [SerializeField] float rotationStepIncrease = 10f;
+    [SerializeField] float rotationStepIncrease = 15f;
     public int reloadStep = 0;
     [SerializeField] float reloadStepIncrease = -0.3f;
     public int valorStep = 0;
@@ -131,7 +131,7 @@ public class UpgradesScreen : MonoBehaviour
     {
         if (GM.totalValor >= ReloadPrices[reloadStep])
         {
-            GM.reloadSpeed += ReloadPrices[reloadStep];
+            GM.reloadSpeed += reloadStepIncrease;
             GM.totalValor -= ReloadPrices[reloadStep];
             reloadStep++;
         }
@@ -141,7 +141,9 @@ public class UpgradesScreen : MonoBehaviour
     {
         if (GM.totalValor >= valorPrices[valorStep])
         {
-
+            GM.valorMultiplier += valorStepIncrease;
+            GM.totalValor -= valorPrices[valorStep];
+            valorStep++;
         }
     }
 
