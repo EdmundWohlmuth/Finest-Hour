@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
 {
     [Header("Refrences")]
     public GameObject UImanager;
+    public GameObject Levelmanager;
     private UIManager UI;
     public GameObject Player;
     private PlayerMovement PC;
@@ -39,9 +40,8 @@ public class GameManager : MonoBehaviour
     {
         UImanager = GameObject.Find("GameManager/UIManager");
         UI = UImanager.GetComponent<UIManager>();
-
-        UpgradeScript = GameObject.Find("GameManager/UIManager/UpgradeScreen");
         upgrade = UpgradeScript.GetComponent<UpgradesScreen>();
+
     }
 
     // Update is called once per frame
@@ -137,6 +137,15 @@ public class GameManager : MonoBehaviour
     void showGainedValor()
     {
 
+    }
+
+    public bool DoesFileExist()
+    {
+        if (File.Exists(Application.persistentDataPath + "/SaveGame.dat"))
+        {
+            return true;
+        }
+        else return false;
     }
 
     public void SaveGame()

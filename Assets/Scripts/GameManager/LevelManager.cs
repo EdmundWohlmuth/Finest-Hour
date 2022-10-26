@@ -16,6 +16,19 @@ public class LevelManager : MonoBehaviour
         gameManager.SaveGame();
     }
 
+    public void NewGame()
+    {
+        if (gameManager.DoesFileExist() == true)
+        {
+            UIManager.NewGameState();
+        }
+        else if (gameManager.DoesFileExist() == false)
+        {
+            SceneManager.LoadScene("Gameplay");
+            UIManager.GamePlayState();
+        }
+    }
+
     public void LoadGamePlay()
     {
         SceneManager.LoadScene("Gameplay");
