@@ -32,7 +32,7 @@ public class UpgradesScreen : MonoBehaviour
     public int rotateStep = 0;
     [SerializeField] float rotationStepIncrease = 15f;
     public int reloadStep = 0;
-    [SerializeField] float reloadStepIncrease = -0.3f;
+    [SerializeField] float reloadStepIncrease = 0.3f;
     public int valorStep = 0;
     [SerializeField] int valorStepIncrease = 1;
 
@@ -131,7 +131,7 @@ public class UpgradesScreen : MonoBehaviour
     {
         if (GM.totalValor >= ReloadPrices[reloadStep])
         {
-            GM.reloadSpeed += reloadStepIncrease;
+            GM.reloadSpeed -= reloadStepIncrease;
             GM.totalValor -= ReloadPrices[reloadStep];
             reloadStep++;
         }

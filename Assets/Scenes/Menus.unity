@@ -1741,7 +1741,7 @@ MonoBehaviour:
   maxFuel: 25
   maxHealth: 10
   damageValue: 4
-  reloadSpeed: 0
+  reloadSpeed: 2
   totalValor: 0
   valorGained: 0
   valorMultiplier: 1

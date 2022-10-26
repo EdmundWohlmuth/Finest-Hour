@@ -41,7 +41,7 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Shooting")]
     public GameObject bullet;
-    public float reloadTime = 1;
+    public float reloadTime = 2;
     public GameObject muzzle;
     bool canShoot = true;
     public GameObject tankColliders;
@@ -74,7 +74,7 @@ public class PlayerMovement : MonoBehaviour
         movementSpeed = GM.speed;
         chasisRotationSpeed = GM.rotationSpeed;
         turretRotationSpeed = GM.turretRotationSpeed;
-        reloadTime = GM.reloadSpeed + 2;
+        reloadTime = GM.reloadSpeed;
         valorPoints = GM.totalValor;
     }
 

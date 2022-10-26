@@ -10459,7 +10459,7 @@ MonoBehaviour:
   turretRotationSpeed: 10
   turret: {fileID: 401356318}
   bullet: {fileID: 4577025315940595177, guid: 6a670777f3051794bab80734cea8af3e, type: 3}
-  reloadTime: 1
+  reloadTime: 2
   muzzle: {fileID: 2205780}
   tankColliders: {fileID: 282887343}
 --- !u!4 &1080716476
