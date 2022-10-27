@@ -13,6 +13,7 @@ public class UIManager : MonoBehaviour
     public Canvas Pause;
     public Canvas NewGame;
     public Canvas OverrideSave;
+    public Canvas Win;
 
     public enum CurrentScreen
     {
@@ -24,7 +25,7 @@ public class UIManager : MonoBehaviour
         _Loose,
         _SaveGame,
         _NewGame,
-        _OverrideSave
+        _OverrideSave     
     }
     public CurrentScreen currentState;
 
@@ -44,6 +45,7 @@ public class UIManager : MonoBehaviour
         Pause.enabled = false;  
         NewGame.enabled = false;
         OverrideSave.enabled = false;
+        Win.enabled = false;
 
         currentState = CurrentScreen._MainMenu;
     }
@@ -58,6 +60,7 @@ public class UIManager : MonoBehaviour
         Pause.enabled = false;
         NewGame.enabled = false;
         OverrideSave.enabled = false;
+        Win.enabled = false;
 
         currentState = CurrentScreen._Upgrade;
     }
@@ -72,6 +75,7 @@ public class UIManager : MonoBehaviour
         Pause.enabled = false;
         NewGame.enabled = false;
         OverrideSave.enabled = false;
+        Win.enabled = false;
 
         currentState = CurrentScreen._GamePlay;
     }
@@ -86,6 +90,7 @@ public class UIManager : MonoBehaviour
         Pause.enabled = false;
         NewGame.enabled = false;
         OverrideSave.enabled = false;
+        Win.enabled = false;
 
         currentState = CurrentScreen._Loose;
     }
@@ -107,6 +112,7 @@ public class UIManager : MonoBehaviour
         Pause.enabled = true;
         NewGame.enabled = false;
         OverrideSave.enabled = false;
+        Win.enabled = false;
 
         currentState = CurrentScreen._Pause;
     }
@@ -121,6 +127,7 @@ public class UIManager : MonoBehaviour
         Pause.enabled = false;
         NewGame.enabled = true;
         OverrideSave.enabled = false;
+        Win.enabled = false;
 
         currentState = CurrentScreen._NewGame;
     }
@@ -135,8 +142,24 @@ public class UIManager : MonoBehaviour
         Pause.enabled = false;
         NewGame.enabled = false;
         OverrideSave.enabled = true;
+        Win.enabled = false;
 
         currentState = CurrentScreen._NewGame;
+    }
+
+    public void WinState()
+    {
+        MainMenu.enabled = false;
+        GamePlay.enabled = false;
+        Upgrade.enabled = false;
+        Loose.enabled = false;
+        Save.enabled = false;
+        Pause.enabled = false;
+        NewGame.enabled = false;
+        OverrideSave.enabled = false;
+        Win.enabled = true;
+
+        currentState = CurrentScreen._Win;
     }
 }
 

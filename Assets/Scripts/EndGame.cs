@@ -4,17 +4,20 @@ using UnityEngine;
 
 public class EndGame : MonoBehaviour
 {
+    public GameObject UIManager;
+    public UIManager UI;
 
-
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        
+        UIManager = GameObject.Find("GameManager/UIManager");
+        UI = UIManager.GetComponent<UIManager>();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        
+        if (collision.gameObject.tag == "Player")
+        {
+            UI.WinState();
+        }
     }
 }
