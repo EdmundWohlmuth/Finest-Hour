@@ -2475,7 +2475,7 @@ MonoBehaviour:
   ReloadPrices: 0400000008000000100000002000000040000000
   valorPrices: 3200000064000000
   fuelStep: 0
-  fuelIncrease: 15
+  fuelIncrease: 25
   speedStep: 0
   speedStepIncrease: 0.25
   DamageStep: 0
@@ -2485,9 +2485,9 @@ MonoBehaviour:
   turretStep: 0
   turretStepIncrease: 0.25
   rotateStep: 0
-  rotationStepIncrease: 1
+  rotationStepIncrease: 2
   reloadStep: 0
-  reloadStepIncrease: 2
+  reloadStepIncrease: -0.3
   valorStep: 0
   valorStepIncrease: 1
   fuelPrice: {fileID: 893536828}
