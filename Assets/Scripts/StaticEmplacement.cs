@@ -8,6 +8,7 @@ public class StaticEmplacement : MonoBehaviour
     public GameObject Player;
     private float rotationSpeed = 0.5f;
     public GameObject valor;
+    Vector3 forward;
 
     public float minValue;
     public float maxValue;
@@ -32,6 +33,14 @@ public class StaticEmplacement : MonoBehaviour
     public Color dmgColor;
     public Color baseColor;
 
+    public enum Facing
+    {
+        down,
+        right,
+        left
+    }
+    public Facing direction;
+
 
     // Start is called before the first frame update
     void Start()
@@ -43,6 +52,7 @@ public class StaticEmplacement : MonoBehaviour
     void Update()
     {
         DistanceCheck();
+        AimAtPlayer();
         AttackCheck();
     }
 
@@ -52,7 +62,7 @@ public class StaticEmplacement : MonoBehaviour
         if (dist <= 7)
         {
             canTarget = true;
-            AimAtPlayer();
+            Debug.Log(forward);
         }
         else canTarget = false;
     }
@@ -60,20 +70,40 @@ public class StaticEmplacement : MonoBehaviour
     void AimAtPlayer()
     {
         transform.up = (Player.transform.position - transform.position) * -1;
-        
-        Vector3 forward = transform.up;
-        if (forward.x > 0.45f && forward.y < 0.90f)
+        forward = transform.up;
+
+        if (direction == Facing.down)
         {
-            forward.x = 0.45f;
-            forward.y = 0.90f;
+            if (forward.x > 0.45f && forward.y < 0.90f)
+            {
+                forward.x = 0.45f;
+                forward.y = 0.90f;
+            }
+            else if (forward.x < -0.45f && forward.y < 0.90f)
+            {
+                forward.x = -0.45f;
+                forward.y = 0.90f;
+            }
         }
-        else if (forward.x < -0.45f && forward.y < 0.90f)
+        else if (direction == Facing.left)
         {
-            forward.x = -0.45f;
-            forward.y = 0.90f;
+            
         }
-        transform.up = forward;
-        Debug.Log(forward);
+        else if (direction == Facing.right)
+        {
+            if (forward.x > -0.90f && forward.y > 0.45f)
+            {
+                forward.x = -0.90f;
+                forward.y = 0.45f;
+            }
+            else if (forward.x > -90f && forward.y < -0.45f)
+            {
+                forward.x = -0.90f;
+                forward.y = -0.45f;
+            }
+        }
+
+        transform.up = forward;       
     }
 
     void AttackCheck()

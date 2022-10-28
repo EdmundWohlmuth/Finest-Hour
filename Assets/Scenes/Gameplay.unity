@@ -18438,6 +18438,10 @@ PrefabInstance:
       propertyPath: minValue
       value: 30
       objectReference: {fileID: 0}
+    - target: {fileID: 6497252912113193901, guid: aed5eb438a16aa84b9e753953556bbcb, type: 3}
+      propertyPath: direction
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6497252912113193903, guid: aed5eb438a16aa84b9e753953556bbcb, type: 3}
       propertyPath: m_Layer
       value: 7
