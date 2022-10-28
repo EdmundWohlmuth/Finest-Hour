@@ -9,7 +9,7 @@ public class UpgradesScreen : MonoBehaviour
     private GameManager GM;
 
     [Header("Price Lists")]
-    public List<int> fuelPrices = new List<int>(5);    
+    public List<int> fuelPrices = new List<int>(6);    
     public List<int> speedPrices = new List<int>(5);
     public List<int> damagePrices = new List<int>(5);
     public List<int> healthPrices = new List<int>(5);

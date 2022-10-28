@@ -131,17 +131,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Player: {fileID: 0}
   valor: {fileID: 5994674724103633436, guid: 4158163069a9c394088ebe6303d0a189, type: 3}
-  minValue: 0
-  maxValue: 0
   bullet: {fileID: 4577025315940595177, guid: 6a670777f3051794bab80734cea8af3e, type: 3}
   reloadTime: 3
   muzzle: {fileID: 6497252912799551359}
-  tankColliders: {fileID: 6497252913710722821}
+  bodyCollider: {fileID: 6497252913710722821}
   damage: 8
   Dmgflash: {fileID: 5343641177820784354}
   ren: {fileID: 6913684686154573309}
   dmgColor: {r: 1, g: 0.033018887, b: 0.033018887, a: 0.39215687}
   baseColor: {r: 1, g: 0, b: 0, a: 0}
+  direction: 0
 --- !u!1 &6497252912799551359
 GameObject:
   m_ObjectHideFlags: 0

@@ -10,9 +10,6 @@ public class StaticEmplacement : MonoBehaviour
     public GameObject valor;
     Vector3 forward;
 
-    public float minValue;
-    public float maxValue;
-
     //shooting init
     public GameObject bullet;
     public float reloadTime = 1;
@@ -20,7 +17,7 @@ public class StaticEmplacement : MonoBehaviour
 
     private bool canTarget = false;
     bool canShoot = true;
-    public GameObject tankColliders;
+    public GameObject bodyCollider;
     float currentDelay = 0;
 
     //stats
@@ -62,7 +59,6 @@ public class StaticEmplacement : MonoBehaviour
         if (dist <= 7)
         {
             canTarget = true;
-            Debug.Log(forward);
         }
         else canTarget = false;
     }
@@ -87,7 +83,16 @@ public class StaticEmplacement : MonoBehaviour
         }
         else if (direction == Facing.left)
         {
-            
+            if (forward.x < 0.90f && forward.y > 0.45f)
+            {
+                forward.x = 0.90f;
+                forward.y = 0.45f;
+            }
+            else if (forward.x < 90f && forward.y < -0.45f)
+            {
+                forward.x = 0.90f;
+                forward.y = -0.45f;
+            }
         }
         else if (direction == Facing.right)
         {
@@ -156,7 +161,7 @@ public class StaticEmplacement : MonoBehaviour
         {
             health = 0;
             InstantiateValor();
-            Destroy(tankColliders);
+            Destroy(bodyCollider);
         }
 
         Debug.Log(health);
