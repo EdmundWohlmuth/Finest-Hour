@@ -59,16 +59,21 @@ public class StaticEmplacement : MonoBehaviour
 
     void AimAtPlayer()
     {
-        Vector2 relativePos = Player.transform.position - transform.position;
+        transform.up = (Player.transform.position - transform.position) * -1;
         
-        float angle = Mathf.Atan2(relativePos.x, relativePos.y) * Mathf.Rad2Deg;
-        //angle = Mathf.Clamp(angle, minValue, maxValue);
-
-
-        Quaternion rotation = Quaternion.AngleAxis(angle, Vector3.back);
-        Quaternion current = transform.localRotation;
-
-        transform.localRotation = Quaternion.Slerp(current, rotation, rotationSpeed * Time.deltaTime);
+        Vector3 forward = transform.up;
+        if (forward.x > 0.45f && forward.y < 0.90f)
+        {
+            forward.x = 0.45f;
+            forward.y = 0.90f;
+        }
+        else if (forward.x < -0.45f && forward.y < 0.90f)
+        {
+            forward.x = -0.45f;
+            forward.y = 0.90f;
+        }
+        transform.up = forward;
+        Debug.Log(forward);
     }
 
     void AttackCheck()

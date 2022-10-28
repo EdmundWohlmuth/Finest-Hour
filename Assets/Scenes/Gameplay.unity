@@ -7551,8 +7551,8 @@ Transform:
   - {fileID: 462062562}
   - {fileID: 1324454460}
   - {fileID: 1708037365}
-  - {fileID: 211494579}
   - {fileID: 1889748294}
+  - {fileID: 211494579}
   - {fileID: 1768038942}
   - {fileID: 539844359}
   m_Father: {fileID: 0}
@@ -27909,11 +27909,11 @@ PrefabInstance:
       objectReference: {fileID: 1080716474}
     - target: {fileID: 6497252912113193901, guid: aed5eb438a16aa84b9e753953556bbcb, type: 3}
       propertyPath: maxValue
-      value: -30
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 6497252912113193901, guid: aed5eb438a16aa84b9e753953556bbcb, type: 3}
       propertyPath: minValue
-      value: 30
+      value: -40
       objectReference: {fileID: 0}
     - target: {fileID: 6497252912113193903, guid: aed5eb438a16aa84b9e753953556bbcb, type: 3}
       propertyPath: m_Layer
