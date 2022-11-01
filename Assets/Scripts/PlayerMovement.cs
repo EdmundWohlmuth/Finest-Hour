@@ -46,6 +46,7 @@ public class PlayerMovement : MonoBehaviour
     bool canShoot = true;
     public GameObject tankColliders;
     float currentDelay = 0;
+    public GameObject flash;
 
     // Start is called before the first frame update
     void Start()
@@ -184,7 +185,15 @@ public class PlayerMovement : MonoBehaviour
             shell.damage = damageValue;
 
             Physics2D.IgnoreCollision(round.GetComponent<Collider2D>(), tankColliders.GetComponent<Collider2D>());
+            StartCoroutine(muzzelFlash());
         }
+    }
+
+    IEnumerator muzzelFlash()
+    {
+        flash.SetActive(true);
+        yield return new WaitForSeconds(0.13f);
+        flash.SetActive(false);
     }
 
     // -------------------------------- MISC ------------------------------- \\
