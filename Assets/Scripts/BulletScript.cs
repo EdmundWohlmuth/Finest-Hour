@@ -40,6 +40,7 @@ public class BulletScript : MonoBehaviour
         if (collision.tag != "Valor")
         {
             disableBullet();
+            Debug.Log("Collided With: " + collision);
         }
     }
 
