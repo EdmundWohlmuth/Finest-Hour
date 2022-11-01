@@ -15747,7 +15747,7 @@ MonoBehaviour:
   reloadTime: 2
   muzzle: {fileID: 2205780}
   tankColliders: {fileID: 1710255635}
-  flash: {fileID: 0}
+  flash: {fileID: 880720168}
 --- !u!4 &1080716476
 Transform:
   m_ObjectHideFlags: 0
@@ -29685,6 +29685,10 @@ PrefabInstance:
       value: -40
       objectReference: {fileID: 0}
     - target: {fileID: 6497252912113193901, guid: aed5eb438a16aa84b9e753953556bbcb, type: 3}
+      propertyPath: dmgColor.a
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6497252912113193901, guid: aed5eb438a16aa84b9e753953556bbcb, type: 3}
       propertyPath: bodyCollider
       value: 
       objectReference: {fileID: 1932157044}
@@ -29780,5 +29784,6 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 7
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7497290675982176681, guid: aed5eb438a16aa84b9e753953556bbcb, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: aed5eb438a16aa84b9e753953556bbcb, type: 3}

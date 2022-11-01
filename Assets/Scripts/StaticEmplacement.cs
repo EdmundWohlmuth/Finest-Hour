@@ -14,6 +14,8 @@ public class StaticEmplacement : MonoBehaviour
     public GameObject bullet;
     public float reloadTime = 1;
     public GameObject muzzle;
+    public GameObject barrel;
+    public GameObject flash;
 
     private bool canTarget = false;
     bool canShoot = true;
@@ -42,6 +44,7 @@ public class StaticEmplacement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Player = GameObject.Find("Player");
         ren.color = baseColor;
     }
 
@@ -65,8 +68,8 @@ public class StaticEmplacement : MonoBehaviour
 
     void AimAtPlayer()
     {
-        transform.up = (Player.transform.position - transform.position) * -1;
-        forward = transform.up;
+        barrel.transform.up = (Player.transform.position - transform.position) * -1;
+        forward = barrel.transform.up;
 
         if (direction == Facing.down)
         {
@@ -108,7 +111,7 @@ public class StaticEmplacement : MonoBehaviour
             }
         }
 
-        transform.up = forward;       
+        barrel.transform.up = forward;       
     }
 
     void AttackCheck()
@@ -139,9 +142,16 @@ public class StaticEmplacement : MonoBehaviour
             round.GetComponent<BulletScript>().speed = -8f;
             round.GetComponent<BulletScript>().rb.velocity = muzzle.transform.up * round.GetComponent<BulletScript>().speed;
             round.GetComponent<BulletScript>().damage = damage;
+            StartCoroutine(muzzelFlash());
 
            // Physics2D.IgnoreCollision(round.GetComponent<Collider2D>(), tankColliders.GetComponent<Collider2D>());
         }
+    }
+    IEnumerator muzzelFlash()
+    {
+        flash.SetActive(true);
+        yield return new WaitForSeconds(0.13f);
+        flash.SetActive(false);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
