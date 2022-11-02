@@ -11,6 +11,7 @@ public class EnemyTank : MonoBehaviour
     public GameObject muzzle;
     public GameObject barrier;
     public GameObject valor;
+    public GameObject flash;
 
     [SerializeField]
     int rotationSpeed;
@@ -151,6 +152,7 @@ public class EnemyTank : MonoBehaviour
             round.GetComponent<BulletScript>().damage = damageValue;
 
             Physics2D.IgnoreCollision(round.GetComponent<Collider2D>(), chasis.GetComponent<Collider2D>());
+            StartCoroutine(muzzelFlash());
         }
     }
 
@@ -203,5 +205,12 @@ public class EnemyTank : MonoBehaviour
             GameObject Valor = Instantiate(valor);
             Valor.transform.position = transform.position;
         }
+    }
+
+    IEnumerator muzzelFlash()
+    {
+        flash.SetActive(true);
+        yield return new WaitForSeconds(0.13f);
+        flash.SetActive(false);
     }
 }

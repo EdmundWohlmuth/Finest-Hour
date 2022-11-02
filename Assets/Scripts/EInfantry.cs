@@ -10,6 +10,7 @@ public class EInfantry : MonoBehaviour
     public GameObject barrier;
     public GameObject Player;
     public GameObject valor;
+    public GameObject scareSprite;
     bool firstScare = true;
     float randValueX;
     float randValueY;
@@ -76,6 +77,7 @@ public class EInfantry : MonoBehaviour
         {
             firstScare = false;
             FindFleePos();
+            StartCoroutine(ShowFear());
         }
         runningTime += Time.deltaTime;
 
@@ -136,6 +138,13 @@ public class EInfantry : MonoBehaviour
     {
         GameObject Valor = Instantiate(valor);
         Valor.transform.position = transform.position;
+    }
+
+    IEnumerator ShowFear()
+    {
+        scareSprite.SetActive(true);
+        yield return new WaitForSeconds(0.25f);
+        scareSprite.SetActive(false);
     }
 
 }
