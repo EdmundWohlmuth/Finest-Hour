@@ -46,16 +46,6 @@ public class UpgradesScreen : MonoBehaviour
     public TMP_Text reloadPrice;
     public TMP_Text valorPrice;
 
-    [Header("Step Text Element")]
-    public TMP_Text fuelStepText;
-    public TMP_Text speedStepText;
-    public TMP_Text damageStepText;
-    public TMP_Text healthStepText;
-    public TMP_Text turretStepText;
-    public TMP_Text rotateStepText;
-    public TMP_Text relaodStepText;
-    public TMP_Text valorStepText;
-
 
     private void Start()
     {
@@ -149,22 +139,15 @@ public class UpgradesScreen : MonoBehaviour
 
     void DisplayPrices()
     {
-        // WILL CHANGE ...StepText to a bar value and put it behind another element to make it look nicer
         fuelPrice.text = "Price: " + fuelPrices[fuelStep].ToString();
-        fuelStepText.text = fuelStep + "/5";
         speedPrice.text = "Price: " + speedPrices[speedStep].ToString();
-        speedStepText.text = speedStep + "/5";
         damagePrice.text = "Price: " + damagePrices[DamageStep].ToString();
-        damageStepText.text = DamageStep + "/5";
         healthPrice.text = "Price: " + healthPrices[HealthStep].ToString();
-        healthStepText.text = HealthStep + "/5";
         turretPrice.text = "Price " + turretPrices[turretStep].ToString();
-        turretStepText.text = turretStep + "/5";
         rotatePrice.text = "Price: " + rotationPrices[rotateStep].ToString();
-        rotateStepText.text = rotateStep + "/5";
         reloadPrice.text = "Price: " + ReloadPrices[reloadStep].ToString();
-        relaodStepText.text = reloadStep + "/5";
         valorPrice.text = valorPrices[valorStep].ToString();
-        valorStepText.text = valorStep + "/5";
+
+
     }
 }
