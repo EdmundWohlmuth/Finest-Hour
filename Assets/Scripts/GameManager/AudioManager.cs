@@ -13,7 +13,8 @@ public class AudioManager : MonoBehaviour
 
     [Header("Audio Clips:")]
     public AudioClip buttonDown;
-    public AudioClip playerFire;
+    public AudioClip gunShotL;
+    public AudioClip gunShotH;
     public AudioClip playerTankMove;
     public AudioClip playerTankLowFuel;
 
@@ -34,30 +35,35 @@ public class AudioManager : MonoBehaviour
 
     void CheckPlayer()
     {
-        if (player == null && uIManager.currentState == UIManager.CurrentScreen._GamePlay)
-        {
-            player = GameObject.Find("Player");
-            playerTank = player.GetComponent<AudioSource>();
+        player = GameObject.Find("Player");
+        playerTank = player.GetComponent<AudioSource>();
 
-            playerBarrel = GameObject.Find("Turret");
-            playerTurret = playerBarrel.GetComponent<AudioSource>();
-        }
-        else if (player != null)
+        playerBarrel = GameObject.Find("Turret");
+        playerTurret = playerBarrel.GetComponent<AudioSource>();
+
+        PlayerMovement playerScript = player.GetComponent<PlayerMovement>();
+        if (playerScript.currentFuel < (playerScript.maxFuel / 3))
         {
-            PlayerMovement playerScript = player.GetComponent<PlayerMovement>();
-            if (playerScript.currentFuel < (playerScript.maxFuel / 3))
-            {
-                playerTank.clip = playerTankLowFuel;
-            }
-            else
-            {
-                playerTank.clip = playerTankMove;
-            }
+            playerTank.clip = playerTankLowFuel;
+        }
+        else
+        {
+            playerTank.clip = playerTankMove;
         }
     }
 
-    public void PlayButtonNoise()
+    public void PlayButtonSound()
     {
         buttonPress.PlayOneShot(buttonDown);
+    }
+
+    public void PlayGunSoundL(AudioSource source)
+    {
+        source.PlayOneShot(gunShotL);
+    }
+
+    public void PlayGunSoundH(AudioSource source)
+    {
+        source.PlayOneShot(gunShotH);
     }
 }

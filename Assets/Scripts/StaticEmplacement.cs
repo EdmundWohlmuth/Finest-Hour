@@ -10,6 +10,11 @@ public class StaticEmplacement : MonoBehaviour
     public GameObject valor;
     Vector3 forward;
 
+    // Audio
+    public AudioSource gunSource;
+    public GameObject audioManager;
+    private AudioManager AM;
+
     //shooting init
     public GameObject bullet;
     public float reloadTime = 1;
@@ -46,6 +51,9 @@ public class StaticEmplacement : MonoBehaviour
     {
         Player = GameObject.Find("Player");
         ren.color = baseColor;
+
+        audioManager = GameObject.Find("GameManager/AudioManager");
+        AM = audioManager.GetComponent<AudioManager>();
     }
 
     // Update is called once per frame
@@ -135,6 +143,7 @@ public class StaticEmplacement : MonoBehaviour
             canShoot = false;
             currentDelay = reloadTime;
 
+            // initialize bullet
             GameObject round = Instantiate(bullet);
             round.transform.position = muzzle.transform.position;
             round.transform.rotation = muzzle.transform.rotation;
@@ -142,7 +151,10 @@ public class StaticEmplacement : MonoBehaviour
             round.GetComponent<BulletScript>().speed = -8f;
             round.GetComponent<BulletScript>().rb.velocity = muzzle.transform.up * round.GetComponent<BulletScript>().speed;
             round.GetComponent<BulletScript>().damage = damage;
+
+            // sfx
             StartCoroutine(muzzelFlash());
+            AM.PlayGunSoundH(gunSource);
 
            // Physics2D.IgnoreCollision(round.GetComponent<Collider2D>(), tankColliders.GetComponent<Collider2D>());
         }

@@ -13,6 +13,12 @@ public class PlayerMovement : MonoBehaviour
     public GameObject uIManager;
     private UIManager UI;
     public GameObject valorMenu;
+    public GameObject audioManager;
+    private AudioManager AM;
+
+    [Header("Audio Sources")]
+    public AudioSource turretSource;
+    public AudioSource tankSource;
 
     [Header("Character Stats")]
     // stats init
@@ -57,6 +63,9 @@ public class PlayerMovement : MonoBehaviour
         // Get UIManager
         uIManager = GameObject.Find("GameManager/UIManager");
         UI = uIManager.GetComponent<UIManager>();
+        // Get AudioManager
+        audioManager = GameObject.Find("GameManager/AudioManager");
+        AM = audioManager.GetComponent<AudioManager>();
 
         // Get gas slider
         gas = GameObject.Find("GameManager/UIManager/Gameplay/GasMeter");
@@ -67,6 +76,8 @@ public class PlayerMovement : MonoBehaviour
         //valor
         valorMenu = GameObject.Find("GameManager/UIManager/Gameplay/ValorText (TMP)");
         valor = valorMenu.GetComponent<TMP_Text>();
+        // Get audioSources
+
 
         // set player values
         maxHealth = GM.maxHealth;
@@ -186,6 +197,7 @@ public class PlayerMovement : MonoBehaviour
 
             Physics2D.IgnoreCollision(round.GetComponent<Collider2D>(), tankColliders.GetComponent<Collider2D>());
             StartCoroutine(muzzelFlash());
+            AM.PlayGunSoundL(turretSource);
         }
     }
 

@@ -16212,6 +16212,9 @@ MonoBehaviour:
   gameManager: {fileID: 0}
   uIManager: {fileID: 0}
   valorMenu: {fileID: 0}
+  audioManager: {fileID: 0}
+  turretSource: {fileID: 401356321}
+  tankSource: {fileID: 1080716480}
   valorPoints: 0
   valor: {fileID: 0}
   maxHealth: 0
