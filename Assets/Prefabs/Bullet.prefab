@@ -141,3 +141,4 @@ MonoBehaviour:
   damage: 0
   startPos: {x: 0, y: 0}
   rb: {fileID: 2209019778152023139}
+  explosion: {fileID: 5164185086827824629, guid: 5eccddff20cc5c4488d05604e4384737, type: 3}

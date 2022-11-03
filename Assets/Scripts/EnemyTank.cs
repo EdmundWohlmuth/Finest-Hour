@@ -13,6 +13,12 @@ public class EnemyTank : MonoBehaviour
     public GameObject valor;
     public GameObject flash;
 
+    [Header("Audio")]
+    public GameObject audioManager;
+    private AudioManager AM;
+    public AudioSource tankSource;
+    public AudioSource turretSource;
+
     [SerializeField]
     int rotationSpeed;
     [SerializeField]
@@ -50,6 +56,10 @@ public class EnemyTank : MonoBehaviour
         barrier = GameObject.Find("Main Camera/Collider");
         Physics2D.IgnoreCollision(chasis.GetComponent<Collider2D>(), barrier.GetComponent<Collider2D>());       
         turret.transform.parent = null;
+
+        // Audio
+        audioManager = GameObject.Find("GameManager/AudioManager");
+        AM = audioManager.GetComponent<AudioManager>();
     }
 
     // Update is called once per frame
@@ -143,6 +153,7 @@ public class EnemyTank : MonoBehaviour
             canShoot = false;
             currentDelay = reloadTime;
 
+            // Instantiate bullet
             GameObject round = Instantiate(bullet);
             round.transform.position = muzzle.transform.position;
             round.transform.rotation = muzzle.transform.rotation;
@@ -150,9 +161,11 @@ public class EnemyTank : MonoBehaviour
             round.GetComponent<BulletScript>().speed = 5f;
             round.GetComponent<BulletScript>().rb.velocity = muzzle.transform.up * round.GetComponent<BulletScript>().speed;
             round.GetComponent<BulletScript>().damage = damageValue;
-
             Physics2D.IgnoreCollision(round.GetComponent<Collider2D>(), chasis.GetComponent<Collider2D>());
+
+            // sfx
             StartCoroutine(muzzelFlash());
+            AM.PlayGunSoundL(turretSource);
         }
     }
 

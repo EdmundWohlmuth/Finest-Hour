@@ -12,6 +12,7 @@ public class BulletScript : MonoBehaviour
     private float traveledDistance = 0;
 
     public Rigidbody2D rb;
+    public GameObject explosion;
 
 
     // Start is called before the first frame update
@@ -39,6 +40,7 @@ public class BulletScript : MonoBehaviour
     {
         if (collision.tag != "Valor")
         {
+            CreateExplosion();
             disableBullet();
         }
     }
@@ -47,5 +49,11 @@ public class BulletScript : MonoBehaviour
     {
         rb.velocity = Vector2.zero;
         gameObject.SetActive(false);
+    }
+
+    void CreateExplosion()
+    {
+        explosion.transform.position = transform.position;
+        Instantiate(explosion);
     }
 }

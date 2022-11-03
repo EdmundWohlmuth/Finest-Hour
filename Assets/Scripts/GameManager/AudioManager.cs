@@ -15,42 +15,14 @@ public class AudioManager : MonoBehaviour
     public AudioClip buttonDown;
     public AudioClip gunShotL;
     public AudioClip gunShotH;
-    public AudioClip playerTankMove;
+    public AudioClip tankMove;
     public AudioClip playerTankLowFuel;
+    public AudioClip explosion;
 
     [Header("Audio Sources:")]
     public AudioSource buttonPress;
     public AudioSource playerTurret;
     public AudioSource playerTank;
-
-    void Start()
-    {
-       
-    }
-
-    void Update()
-    {
-        CheckPlayer();
-    }
-
-    void CheckPlayer()
-    {
-        player = GameObject.Find("Player");
-        playerTank = player.GetComponent<AudioSource>();
-
-        playerBarrel = GameObject.Find("Turret");
-        playerTurret = playerBarrel.GetComponent<AudioSource>();
-
-        PlayerMovement playerScript = player.GetComponent<PlayerMovement>();
-        if (playerScript.currentFuel < (playerScript.maxFuel / 3))
-        {
-            playerTank.clip = playerTankLowFuel;
-        }
-        else
-        {
-            playerTank.clip = playerTankMove;
-        }
-    }
 
     public void PlayButtonSound()
     {
@@ -65,5 +37,15 @@ public class AudioManager : MonoBehaviour
     public void PlayGunSoundH(AudioSource source)
     {
         source.PlayOneShot(gunShotH);
+    }
+
+    public void PlayExplosion(AudioSource source)
+    {
+        source.PlayOneShot(explosion);
+    }
+
+    public void PlayEngineSound(AudioSource source)
+    {
+        // might make sense to run this on the player itself
     }
 }
