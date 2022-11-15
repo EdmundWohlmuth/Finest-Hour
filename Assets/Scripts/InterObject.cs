@@ -13,11 +13,6 @@ public class InterObject : MonoBehaviour
     }
     public Object m_Object;
 
-    private void Start()
-    {
-
-    }
-
     private void OnCollisionEnter2D(Collision2D collision)
     {       
         if (m_Object == Object.sandbag && collision.gameObject.tag == "Player")
