@@ -20,7 +20,7 @@ public class UpgradesScreen : MonoBehaviour
 
     [Header("Price Steps")]
     public int fuelStep = 0;
-    [SerializeField] int fuelIncrease = 15;
+    [SerializeField] int fuelIncrease = 20;
     public int speedStep = 0;
     [SerializeField] float speedStepIncrease = 0.25f;
     public int DamageStep = 0;

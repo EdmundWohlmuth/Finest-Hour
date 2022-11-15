@@ -88,6 +88,7 @@ public class PlayerMovement : MonoBehaviour
         turretRotationSpeed = GM.turretRotationSpeed;
         reloadTime = GM.reloadSpeed;
         valorPoints = GM.totalValor;
+        valorMultiplier = GM.valorMultiplier;
     }
 
     // Update is called once per frame

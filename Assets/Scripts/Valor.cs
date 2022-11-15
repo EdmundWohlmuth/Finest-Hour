@@ -24,7 +24,7 @@ public class Valor : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            PC.valorPoints += 1 * PC.valorMultiplier;
+            PC.valorPoints += (1 * PC.valorMultiplier);
             Destroy(gameObject);
         }
     }

@@ -138,7 +138,7 @@ public class StaticEmplacement : MonoBehaviour
 
     void Attack()
     {
-        if (canTarget && Player.transform.position.y < transform.position.y)
+        if (canTarget)
         {
             canShoot = false;
             currentDelay = reloadTime;
