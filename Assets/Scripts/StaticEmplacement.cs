@@ -9,6 +9,7 @@ public class StaticEmplacement : MonoBehaviour
     private float rotationSpeed = 0.5f;
     public GameObject valor;
     Vector3 forward;
+    float dist;
 
     // Audio
     public AudioSource gunSource;
@@ -66,19 +67,42 @@ public class StaticEmplacement : MonoBehaviour
 
     void DistanceCheck()
     {
-        float dist = Vector3.Distance(Player.transform.position, transform.position); //determin distance from player
+        dist = Vector3.Distance(Player.transform.position, transform.position); //determin distance from player
         if (dist <= 7)
         {
-            canTarget = true;
+            if (direction == Facing.down)
+            {
+                if (Player.transform.position.y > transform.position.y)
+                {
+                    canTarget = false;
+                }
+                else canTarget = true;
+            }
+            else if (direction == Facing.right)
+            {
+                if (Player.transform.position.x < transform.position.x)
+                {
+                    canTarget = false;
+                }
+                else canTarget = true;
+            }
+            else if (direction == Facing.left)
+            {
+                if (Player.transform.position.x > transform.position.x)
+                {
+                    canTarget = false;
+                }
+                else canTarget = true;
+            }
         }
-        else canTarget = false;
     }
 
     void AimAtPlayer()
-    {
+    {        
         barrel.transform.up = (Player.transform.position - transform.position) * -1;
-        forward = barrel.transform.up;
+        forward = barrel.transform.up;        
 
+        // clamp rotation
         if (direction == Facing.down)
         {
             if (forward.x > 0.45f && forward.y < 0.90f)
@@ -90,19 +114,6 @@ public class StaticEmplacement : MonoBehaviour
             {
                 forward.x = -0.45f;
                 forward.y = 0.90f;
-            }
-        }
-        else if (direction == Facing.left)
-        {
-            if (forward.x < 0.90f && forward.y > 0.45f)
-            {
-                forward.x = 0.90f;
-                forward.y = 0.45f;
-            }
-            else if (forward.x < 90f && forward.y < -0.45f)
-            {
-                forward.x = 0.90f;
-                forward.y = -0.45f;
             }
         }
         else if (direction == Facing.right)
@@ -118,7 +129,20 @@ public class StaticEmplacement : MonoBehaviour
                 forward.y = -0.45f;
             }
         }
+        else if (direction == Facing.left)
+        {
+            if (forward.x < 0.90f && forward.y > 0.45f)
+            {
+                forward.x = 0.90f;
+                forward.y = 0.45f;
+            }
+            else if (forward.x < 90f && forward.y < -0.45f)
+            {
+                forward.x = 0.90f;
+                forward.y = -0.45f;
+            }
 
+        }
         barrel.transform.up = forward;       
     }
 
