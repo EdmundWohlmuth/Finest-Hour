@@ -158,7 +158,7 @@ public class GameManager : MonoBehaviour
         upgrade.reloadStep = 0;
         upgrade.valorStep = 0;
 
-        if (File.Exists(Application.persistentDataPath + "/SaveGame.dat"))
+        if (!DoesFileExist())
         {
             File.Delete(Application.persistentDataPath + "/SaveGame.dat");
         }       
