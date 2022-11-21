@@ -34,6 +34,19 @@ public class GameManager : MonoBehaviour
     public int valorGained;
     public int valorMultiplier;
 
+    float baseSpeed;
+    float baseTurretRotationSpeed;
+    float baseRotationSpeed;
+    float baseMaxFuel;
+    int baseMaxHealth;
+    int baseDamageValue;
+    float baseReloadSpeed;
+    int baseTotalValor;
+    int baseValorGained;
+    int baseValorMultiplier;
+
+
+
 
     // Start is called before the first frame update
     void Start()
@@ -41,6 +54,17 @@ public class GameManager : MonoBehaviour
         UImanager = GameObject.Find("GameManager/UIManager");
         UI = UImanager.GetComponent<UIManager>();
         upgrade = UpgradeScript.GetComponent<UpgradesScreen>();
+
+        baseSpeed = speed;
+        baseTurretRotationSpeed = turretRotationSpeed;
+        baseRotationSpeed = rotationSpeed;
+        baseMaxHealth = maxHealth;
+        baseMaxFuel = maxFuel;
+        baseReloadSpeed = reloadSpeed;
+        baseDamageValue = damageValue;
+        baseTotalValor = totalValor;
+        baseValorGained = valorGained;
+        baseValorMultiplier = valorMultiplier;
 
     }
 
@@ -110,6 +134,34 @@ public class GameManager : MonoBehaviour
             default:
                 break;
         }
+    }
+
+    public void ResetPlayerStats()
+    {
+        speed = baseSpeed;
+        turretRotationSpeed = baseTurretRotationSpeed;
+        rotationSpeed = baseRotationSpeed;
+        maxHealth = baseMaxHealth;
+        maxFuel = baseMaxFuel;
+        reloadSpeed = baseReloadSpeed;
+        damageValue = baseDamageValue;
+        totalValor = baseTotalValor;
+        valorGained = baseValorGained;
+        valorMultiplier = baseValorMultiplier;
+
+        upgrade.fuelStep = 0;
+        upgrade.speedStep = 0;
+        upgrade.DamageStep = 0;
+        upgrade.HealthStep = 0;
+        upgrade.rotateStep = 0;
+        upgrade.turretStep = 0;
+        upgrade.reloadStep = 0;
+        upgrade.valorStep = 0;
+
+        if (File.Exists(Application.persistentDataPath + "/SaveGame.dat"))
+        {
+            File.Delete(Application.persistentDataPath + "/SaveGame.dat");
+        }       
     }
 
     void PullPlayerValues()

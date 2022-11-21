@@ -16,6 +16,12 @@ public class LevelManager : MonoBehaviour
         gameManager.SaveGame();
     }
 
+    public void LoadMainMenu()
+    {
+        SceneManager.LoadScene("Menus");
+        UIManager.MainMenuState();
+    }
+
     public void NewGame()
     {
         if (gameManager.DoesFileExist() == true)
@@ -33,6 +39,14 @@ public class LevelManager : MonoBehaviour
     {
         SceneManager.LoadScene("Gameplay");
         UIManager.GamePlayState();
+    }
+
+    public void LoadNewGame()
+    {
+        SceneManager.LoadScene("Gameplay");
+        gameManager.ResetPlayerStats();
+        UIManager.GamePlayState();
+
     }
 
     public void ExitGame()
