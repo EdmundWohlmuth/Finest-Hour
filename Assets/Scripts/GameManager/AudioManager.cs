@@ -16,7 +16,7 @@ public class AudioManager : MonoBehaviour
     public AudioClip gunShotL;
     public AudioClip gunShotH;
     public AudioClip tankMove;
-    public AudioClip playerTankLowFuel;
+    public AudioClip tankLowFuel;
     public AudioClip explosion;
 
     [Header("Audio Sources:")]
@@ -42,10 +42,5 @@ public class AudioManager : MonoBehaviour
     public void PlayExplosion(AudioSource source)
     {
         source.PlayOneShot(explosion);
-    }
-
-    public void PlayEngineSound(AudioSource source)
-    {
-        // might make sense to run this on the player itself
     }
 }

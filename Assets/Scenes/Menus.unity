@@ -12099,8 +12099,8 @@ MonoBehaviour:
   buttonDown: {fileID: 0}
   gunShotL: {fileID: 8300000, guid: a3d79bec4608fcd43b37746023fa9d0a, type: 3}
   gunShotH: {fileID: 8300000, guid: 341510f9616d58944a1825f6b987194c, type: 3}
-  tankMove: {fileID: 0}
-  playerTankLowFuel: {fileID: 0}
+  tankMove: {fileID: 8300000, guid: ddb7bf01f74c4594a8f9745778369949, type: 3}
+  tankLowFuel: {fileID: 8300000, guid: a387fea80ba27b24a94491f0a3d69b5e, type: 3}
   explosion: {fileID: 0}
   buttonPress: {fileID: 0}
   playerTurret: {fileID: 0}

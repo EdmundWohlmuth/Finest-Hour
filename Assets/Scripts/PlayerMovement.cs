@@ -93,7 +93,7 @@ public class PlayerMovement : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
+    {       
         TankMovement();
         Aim();
         TurretRotate();
@@ -143,8 +143,8 @@ public class PlayerMovement : MonoBehaviour
             else
             {
                 gasMeter.value = currentFuel;
-            }           
-        } // if fuel is low add blinking, engine sputtering sounds etc.
+            }
+        } 
     }
 
     // ------------------------------ Turret Movement ----------------------------- \\
