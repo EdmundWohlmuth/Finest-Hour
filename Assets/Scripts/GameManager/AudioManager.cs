@@ -18,6 +18,7 @@ public class AudioManager : MonoBehaviour
     public AudioClip tankMove;
     public AudioClip tankLowFuel;
     public AudioClip explosion;
+    public AudioClip valorPickUp;
 
     [Header("Audio Sources:")]
     public AudioSource buttonPress;
@@ -42,5 +43,10 @@ public class AudioManager : MonoBehaviour
     public void PlayExplosion(AudioSource source)
     {
         source.PlayOneShot(explosion);
+    }
+
+    public void PlayValorPickkup(AudioSource source)
+    {
+        source.PlayOneShot(valorPickUp);
     }
 }
