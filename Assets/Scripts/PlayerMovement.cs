@@ -41,6 +41,7 @@ public class PlayerMovement : MonoBehaviour
     // aim init
     public Camera mainCamera;
     public GameObject crossHair;
+    public GameObject reticule;
     public float turretRotationSpeed = 10f;
     public GameObject turret;
 
@@ -152,6 +153,7 @@ public class PlayerMovement : MonoBehaviour
     {
         Vector2 mousePosition = mainCamera.ScreenToWorldPoint(Input.mousePosition);
         crossHair.transform.position = mousePosition;
+        //reticule.transform.position = new Vector3(0, mousePosition.y, 0);
     }
     void TurretRotate()
     {
