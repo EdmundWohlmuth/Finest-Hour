@@ -16,6 +16,9 @@ public class PlayerMovement : MonoBehaviour
     public GameObject audioManager;
     private AudioManager AM;
 
+    GameObject progressBar;
+    Slider progressSlider;
+
     [Header("Audio Sources")]
     public AudioSource turretSource;
     public AudioSource tankSource;
@@ -77,7 +80,10 @@ public class PlayerMovement : MonoBehaviour
         //valor
         valorMenu = GameObject.Find("GameManager/UIManager/Gameplay/ValorText (TMP)");
         valor = valorMenu.GetComponent<TMP_Text>();
-        // Get audioSources
+
+        // Get ProgressBar
+        progressBar = GameObject.Find("GameManager/UIManager/Gameplay/ProgressSlider");
+        progressSlider = progressBar.GetComponent<Slider>();
 
 
         // set player values
@@ -101,6 +107,7 @@ public class PlayerMovement : MonoBehaviour
         ShootCheck();
         SpendFuel();
         CheckValor();
+        UpdateProgressBar();
     }
 
     // ------------------------ Tank Chasis Movement ------------------------- \\
@@ -217,5 +224,10 @@ public class PlayerMovement : MonoBehaviour
     {
         valor.text = "Valor: " + valorPoints.ToString();
         GM.totalValor = valorPoints;
+    }
+
+    void UpdateProgressBar()
+    {
+        progressSlider.value = transform.position.y;
     }
 }
