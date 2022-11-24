@@ -32,6 +32,7 @@ public class GameManager : MonoBehaviour
     public float reloadSpeed;
     public int totalValor;
     public int valorGained;
+    public int previousValor;
     public int valorMultiplier;
 
     float baseSpeed;
@@ -42,8 +43,6 @@ public class GameManager : MonoBehaviour
     int baseDamageValue;
     float baseReloadSpeed;
     int baseTotalValor;
-    int baseValorGained;
-    int baseValorMultiplier;
 
 
 
@@ -63,8 +62,8 @@ public class GameManager : MonoBehaviour
         baseReloadSpeed = reloadSpeed;
         baseDamageValue = damageValue;
         baseTotalValor = totalValor;
-        baseValorGained = valorGained;
-        baseValorMultiplier = valorMultiplier;
+        valorMultiplier = 0;
+        previousValor = 0;
 
     }
 
@@ -88,15 +87,14 @@ public class GameManager : MonoBehaviour
                     continueButton.interactable = true;
                 }
                 else continueButton.interactable = false;
-                valorGained = 0;
 
                 break;
             case UIManager.CurrentScreen._Upgrade:
 
                 Time.timeScale = 1;
+                previousValor = totalValor;
                 UI.UpgradeState();
                 UpgradesScreen();
-                valorGained = 0;
 
                 break;
             case UIManager.CurrentScreen._GamePlay:
@@ -116,7 +114,6 @@ public class GameManager : MonoBehaviour
                 {
                     UI.GamePlayState();
                 }
-                valorGained = 0;
 
                 break;
             case UIManager.CurrentScreen._Win:
@@ -128,7 +125,7 @@ public class GameManager : MonoBehaviour
 
                 Time.timeScale = 0;
                 UI.LooseState();
-                PullPlayerValues();
+                SetValor();
 
                 break;
             default:
@@ -146,8 +143,7 @@ public class GameManager : MonoBehaviour
         reloadSpeed = baseReloadSpeed;
         damageValue = baseDamageValue;
         totalValor = baseTotalValor;
-        valorGained = baseValorGained;
-        valorMultiplier = baseValorMultiplier;
+        valorMultiplier = 0;
 
         upgrade.fuelStep = 0;
         upgrade.speedStep = 0;
@@ -164,31 +160,13 @@ public class GameManager : MonoBehaviour
         }       
     }
 
-    void PullPlayerValues()
+    void SetValor()
     {
-        if (PC != null)
-        {
-            speed = PC.movementSpeed; // Do I need all this? Shouldn't I just be checking for valor?
-            turretRotationSpeed = PC.turretRotationSpeed;
-            rotationSpeed = PC.chasisRotationSpeed;
-            maxFuel = PC.maxFuel;
-            maxHealth = PC.maxHealth;
-            damageValue = PC.damageValue;
-            totalValor = PC.valorPoints;
-            rotationSpeed = PC.chasisRotationSpeed;
-            turretRotationSpeed = PC.turretRotationSpeed;
-            reloadSpeed = PC.reloadTime;
-            valorMultiplier = PC.valorMultiplier;
-        }
+        valorGained = totalValor - previousValor;        
 
         // set text
         totalValorText.text = "Total Valor: " + totalValor.ToString();
         valorGainedText.text = "Valor Gained: " + valorGained.ToString();
-    }
-
-    void showGainedValor()
-    {
-
     }
 
     public bool DoesFileExist()
