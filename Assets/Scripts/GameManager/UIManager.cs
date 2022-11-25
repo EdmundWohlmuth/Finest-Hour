@@ -29,7 +29,6 @@ public class UIManager : MonoBehaviour
     }
     public CurrentScreen currentState;
 
-    // Start is called before the first frame update
     void Start()
     {
         MainMenuState();

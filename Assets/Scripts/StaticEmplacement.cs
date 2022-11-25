@@ -65,7 +65,7 @@ public class StaticEmplacement : MonoBehaviour
         AttackCheck();
     }
 
-    void DistanceCheck()
+    void DistanceCheck() // determins if player is close enough to target
     {
         dist = Vector3.Distance(Player.transform.position, transform.position); //determin distance from player
         if (dist <= 7)
@@ -97,7 +97,7 @@ public class StaticEmplacement : MonoBehaviour
         }
     }
 
-    void AimAtPlayer()
+    void AimAtPlayer() // becasue turret can be facing diffrent directions enum set from inspector sets clamps for rotaions
     {        
         barrel.transform.up = (Player.transform.position - transform.position) * -1;
         forward = barrel.transform.up;        

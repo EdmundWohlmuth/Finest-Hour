@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour
     public TMP_Text valorText;
     public TMP_Text totalValorText;
     public TMP_Text valorGainedText;
+    public TMP_Text valorMultiplerText;
     public GameObject UpgradeScript;
     public UpgradesScreen upgrade;
     public Button continueButton;
@@ -160,13 +161,14 @@ public class GameManager : MonoBehaviour
         }       
     }
 
-    void SetValor()
+    void SetValor() // Sets text at the game over screen
     {
         valorGained = totalValor - previousValor;        
 
         // set text
         totalValorText.text = "Total Valor: " + totalValor.ToString();
         valorGainedText.text = "Valor Gained: " + valorGained.ToString();
+        valorMultiplerText.text = "Valor Multiplier: x" + valorMultiplier.ToString();
     }
 
     public bool DoesFileExist()

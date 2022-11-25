@@ -134,7 +134,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         // moves turret with tank
-        turret.transform.position = transform.position;
+        turret.transform.position = transform.position; // Turret is not a child of the tank to accomidate the rotation script
     }
 
     // -------------------------------- FUEL ------------------------ \\
@@ -142,7 +142,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S))
         {
-            currentFuel = currentFuel -= Time.deltaTime;
+            currentFuel = currentFuel -= Time.deltaTime; // decriment fuel over time while moving forward or backwards
 
             if (currentFuel <= 0)
             {
@@ -158,19 +158,21 @@ public class PlayerMovement : MonoBehaviour
 
     // ------------------------------ Turret Movement ----------------------------- \\
     void Aim()
-    {
+    {        
         Vector2 mousePosition = mainCamera.ScreenToWorldPoint(Input.mousePosition);
         crossHair.transform.position = mousePosition;
-        //reticule.transform.position = new Vector3(0, mousePosition.y, 0);
     }
     void TurretRotate()
     {
+        // compares turent position and cursor position to get angle value
         Vector2 relativePos = crossHair.transform.position - turret.transform.position;
         float angle = Mathf.Atan2(relativePos.x, relativePos.y) * Mathf.Rad2Deg;
 
+        // gets values for turret rotation
         Quaternion rotation = Quaternion.AngleAxis(angle, Vector3.back);
         Quaternion current = turret.transform.localRotation;
 
+        // sets the rotation value of the turret
         turret.transform.localRotation = Quaternion.Slerp(current, rotation, turretRotationSpeed * Time.deltaTime);
     }
 
@@ -198,6 +200,7 @@ public class PlayerMovement : MonoBehaviour
             canShoot = false;
             currentDelay = reloadTime;
 
+            // instatiate bullet object and move it
             GameObject round = Instantiate(bullet);
             BulletScript shell = round.GetComponent<BulletScript>();
             round.transform.position = muzzle.transform.position;
