@@ -63,7 +63,7 @@ public class GameManager : MonoBehaviour
         baseReloadSpeed = reloadSpeed;
         baseDamageValue = damageValue;
         baseTotalValor = totalValor;
-        valorMultiplier = 0;
+        valorMultiplier = 1;
         previousValor = 0;
 
     }
@@ -144,7 +144,7 @@ public class GameManager : MonoBehaviour
         reloadSpeed = baseReloadSpeed;
         damageValue = baseDamageValue;
         totalValor = baseTotalValor;
-        valorMultiplier = 0;
+        valorMultiplier = 1;
 
         upgrade.fuelStep = 0;
         upgrade.speedStep = 0;

@@ -98,8 +98,15 @@ public class StaticEmplacement : MonoBehaviour
     }
 
     void AimAtPlayer() // becasue turret can be facing diffrent directions enum set from inspector sets clamps for rotaions
-    {        
-        barrel.transform.up = (Player.transform.position - transform.position) * -1;
+    {    
+        if (Player.transform.position.y > transform.position.y)
+        {
+            barrel.transform.up = (Player.transform.position - transform.position);
+        }
+        else
+        {
+            barrel.transform.up = (Player.transform.position - transform.position) * -1;
+        }
         forward = barrel.transform.up;        
 
         // clamp rotation
