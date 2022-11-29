@@ -42,6 +42,7 @@ public class TakeDamage : MonoBehaviour
             damageDelt = collision.GetComponent<BulletScript>().damage;
 
             ReduceHealth(damageDelt);
+            //LeanTween here
             StartCoroutine(ShowDamage());
         }
     }
