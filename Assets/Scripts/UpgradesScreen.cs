@@ -159,7 +159,7 @@ public class UpgradesScreen : MonoBehaviour
         turretPrice.text = "Price " + turretPrices[turretStep].ToString();
         rotatePrice.text = "Price: " + rotationPrices[rotateStep].ToString();
         reloadPrice.text = "Price: " + ReloadPrices[reloadStep].ToString();
-        valorPrice.text = valorPrices[valorStep].ToString();
+        valorPrice.text = "Price: " + valorPrices[valorStep].ToString();
     }
 
     void DisableButtonCheck()

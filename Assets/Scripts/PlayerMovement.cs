@@ -59,6 +59,9 @@ public class PlayerMovement : MonoBehaviour
     float currentDelay = 0;
     public GameObject flash;
 
+    public Slider reloadBar;
+    public GameObject reloadSlider;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -97,6 +100,9 @@ public class PlayerMovement : MonoBehaviour
         reloadTime = GM.reloadSpeed;
         valorPoints = GM.totalValor;
         valorMultiplier = GM.valorMultiplier;
+
+        // set reload slider
+        reloadBar.maxValue = reloadTime;
     }
 
     // Update is called once per frame
@@ -180,18 +186,20 @@ public class PlayerMovement : MonoBehaviour
     void ShootCheck()
     {
         currentDelay -= Time.deltaTime;
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+
+        if (currentDelay <= 0)
         {
-            if (!canShoot)
-            {
-                if (currentDelay <= 0)
-                {
-                    canShoot = true;
-                    Shoot();
-                }
-            }
-            else Shoot();
+            canShoot = true;
+            reloadSlider.SetActive(false);
         }
+        else reloadSlider.SetActive(true);
+
+        if (Input.GetKeyDown(KeyCode.Mouse0) && canShoot)
+        {
+            Shoot();
+        }
+
+        reloadBar.value = currentDelay;
     }
     void Shoot()
     {
@@ -213,6 +221,7 @@ public class PlayerMovement : MonoBehaviour
             StartCoroutine(muzzelFlash());
             AM.PlayGunSoundL(turretSource);
         }
+
     }
 
     IEnumerator muzzelFlash()
