@@ -98,20 +98,20 @@ public class StaticEmplacement : MonoBehaviour
     }
 
     void AimAtPlayer() // becasue turret can be facing diffrent directions enum set from inspector sets clamps for rotaions
-    {    
-        if (Player.transform.position.y > transform.position.y)
-        {
-            barrel.transform.up = (Player.transform.position - transform.position);
-        }
-        else
-        {
-            barrel.transform.up = (Player.transform.position - transform.position) * -1;
-        }
-        forward = barrel.transform.up;        
-
+    {          
         // clamp rotation
         if (direction == Facing.down)
         {
+            if (Player.transform.position.y > transform.position.y)
+            {
+                barrel.transform.up = (Player.transform.position - transform.position);
+            }
+            else
+            {
+                barrel.transform.up = (Player.transform.position - transform.position) * -1;
+            }
+            forward = barrel.transform.up;
+
             if (forward.x > 0.45f && forward.y < 0.90f)
             {
                 forward.x = 0.45f;
@@ -125,6 +125,16 @@ public class StaticEmplacement : MonoBehaviour
         }
         else if (direction == Facing.right)
         {
+            if (Player.transform.position.x < transform.position.x)
+            {
+                barrel.transform.up = (Player.transform.position - transform.position);
+            }
+            else
+            {
+                barrel.transform.up = (Player.transform.position - transform.position) * -1;
+            }
+            forward = barrel.transform.up;
+
             if (forward.x > -0.90f && forward.y > 0.45f)
             {
                 forward.x = -0.90f;
@@ -138,6 +148,15 @@ public class StaticEmplacement : MonoBehaviour
         }
         else if (direction == Facing.left)
         {
+            if (Player.transform.position.x > transform.position.x)
+            {
+                barrel.transform.up = (Player.transform.position - transform.position);
+            }
+            else
+            {
+                barrel.transform.up = (Player.transform.position - transform.position) * -1;
+            }
+            forward = barrel.transform.up;
             if (forward.x < 0.90f && forward.y > 0.45f)
             {
                 forward.x = 0.90f;
