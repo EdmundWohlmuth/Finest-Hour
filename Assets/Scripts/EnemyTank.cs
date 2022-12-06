@@ -33,7 +33,7 @@ public class EnemyTank : MonoBehaviour
 
     float currentDelay;
     bool canShoot;
-    float reloadTime = 1f;
+    float reloadTime = 1.5f;
 
     private Vector3 lastKnownPos;
     public GameObject chasis;
@@ -81,11 +81,6 @@ public class EnemyTank : MonoBehaviour
                 lastKnownPos = player.transform.position;
 
                 break;
-            case states.chase:
-
-                Movement();
-
-                break;
         }
     }
 
@@ -93,9 +88,6 @@ public class EnemyTank : MonoBehaviour
     {
         if (state == states.safe &&
             Vector3.Distance(transform.position, player.transform.position) < 9) state = states.danger;
-
-        else if (state == states.danger && 
-            Vector3.Distance(transform.position, player.transform.position) < 9) state = states.chase;
 
         else state = states.safe;
     }
