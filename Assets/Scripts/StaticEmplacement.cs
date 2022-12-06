@@ -157,6 +157,7 @@ public class StaticEmplacement : MonoBehaviour
                 barrel.transform.up = (Player.transform.position - transform.position) * -1;
             }
             forward = barrel.transform.up;
+
             if (forward.x < 0.90f && forward.y > 0.45f)
             {
                 forward.x = 0.90f;
