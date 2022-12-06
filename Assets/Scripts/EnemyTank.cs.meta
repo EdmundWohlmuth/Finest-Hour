@@ -3,7 +3,19 @@ guid: 5d6699c538750f148a5ab8e71f9fadeb
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - player: {instanceID: 0}
+  - bullet: {instanceID: 0}
+  - turret: {instanceID: 0}
+  - muzzle: {instanceID: 0}
+  - barrier: {instanceID: 0}
+  - valor: {instanceID: 0}
+  - flash: {instanceID: 0}
+  - explosion: {fileID: 139366, guid: ad852a1c4ba86b84582ece4812c72c11, type: 3}
+  - audioManager: {instanceID: 0}
+  - tankSource: {instanceID: 0}
+  - turretSource: {instanceID: 0}
+  - chasis: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

@@ -22,6 +22,7 @@ public class StaticEmplacement : MonoBehaviour
     public GameObject muzzle;
     public GameObject barrel;
     public GameObject flash;
+    public GameObject explosion;
 
     private bool canTarget = false;
     bool canShoot = true;
@@ -234,6 +235,8 @@ public class StaticEmplacement : MonoBehaviour
         {
             health = 0;
             InstantiateValor();
+            GameObject boom = Instantiate(explosion);
+            boom.transform.position = transform.position;
             Destroy(bodyCollider);
         }
 

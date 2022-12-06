@@ -55,6 +55,7 @@ MonoBehaviour:
   barrier: {fileID: 0}
   valor: {fileID: 5994674724103633436, guid: 4158163069a9c394088ebe6303d0a189, type: 3}
   flash: {fileID: 4663555550177420812}
+  explosion: {fileID: 139366, guid: ad852a1c4ba86b84582ece4812c72c11, type: 3}
   audioManager: {fileID: 0}
   tankSource: {fileID: 2235791735585711935}
   turretSource: {fileID: 5476830936708611478}

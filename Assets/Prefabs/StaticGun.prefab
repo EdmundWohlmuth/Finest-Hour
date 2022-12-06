@@ -406,11 +406,13 @@ MonoBehaviour:
   Player: {fileID: 0}
   valor: {fileID: 5994674724103633436, guid: 4158163069a9c394088ebe6303d0a189, type: 3}
   gunSource: {fileID: 4769723934364299092}
+  audioManager: {fileID: 0}
   bullet: {fileID: 4577025315940595177, guid: 6a670777f3051794bab80734cea8af3e, type: 3}
   reloadTime: 4
   muzzle: {fileID: 6497252912799551359}
   barrel: {fileID: 6497252913025545369}
   flash: {fileID: 6255453520097257156}
+  explosion: {fileID: 139366, guid: ad852a1c4ba86b84582ece4812c72c11, type: 3}
   bodyCollider: {fileID: 6497252913710722821}
   damage: 7
   Dmgflash: {fileID: 0}

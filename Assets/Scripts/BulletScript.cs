@@ -21,18 +21,15 @@ public class BulletScript : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
     }
 
-    public void Init()
-    {
-
-    }
-
     // Update is called once per frame
     void Update()
     {
         traveledDistance = Vector2.Distance(transform.position, startPos);
         if (traveledDistance >= maxDistance)
         {
-            disableBullet();
+            explosion.transform.position = transform.position;
+            Instantiate(explosion);
+            Destroy(gameObject);
         }
     }
 

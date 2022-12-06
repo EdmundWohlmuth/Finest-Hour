@@ -12,6 +12,7 @@ public class EnemyTank : MonoBehaviour
     public GameObject barrier;
     public GameObject valor;
     public GameObject flash;
+    public GameObject explosion;
 
     [Header("Audio")]
     public GameObject audioManager;
@@ -174,7 +175,9 @@ public class EnemyTank : MonoBehaviour
         health -= damageDelt;
         if (health <= 0)
         {
-            InstantiateValor();
+            InstantiateValor();           
+            GameObject boom = Instantiate(explosion);
+            boom.transform.position = transform.position;
             Destroy(gameObject);
             Destroy(turret);
         }
