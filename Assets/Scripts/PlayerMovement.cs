@@ -179,7 +179,7 @@ public class PlayerMovement : MonoBehaviour
         Quaternion current = turret.transform.localRotation;
 
         // sets the rotation value of the turret
-        turret.transform.localRotation = Quaternion.Slerp(current, rotation, turretRotationSpeed * Time.deltaTime);
+        turret.transform.localRotation = Quaternion.Slerp(current, rotation, turretRotationSpeed * Time.deltaTime); 
     }
 
     // --------------------------------- Shooting --------------------------------- \\

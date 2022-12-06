@@ -247,8 +247,12 @@ public class StaticEmplacement : MonoBehaviour
     {
         for (int i = 0; i < 3; i++)
         {
+            float deviationX = Random.Range(-0.5f, 0.5f);
+            float deviationY = Random.Range(-0.5f, 0.5f);
             GameObject Valor = Instantiate(valor);
-            Valor.transform.position = transform.position;
+            Valor.transform.position = new Vector3(transform.position.x + deviationX,
+                                                   transform.position.y + deviationY,
+                                                   0);
         }
     }
 
