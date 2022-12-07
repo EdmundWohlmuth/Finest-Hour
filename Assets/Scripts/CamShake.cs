@@ -4,13 +4,12 @@ using UnityEngine;
 
 public class CamShake : MonoBehaviour
 {
-    bool isTweening = false;
     public Vector2 camStartPos;
+    public bool tweening;
 
     public void ShakeCameraStart()
     {
-        isTweening = true;
-        camStartPos = transform.position;
+        tweening = true;
         LeanTween.moveY(gameObject, transform.position.y - 0.5f, 0.05f).setOnComplete(ShakeCamera2);
     }
 
@@ -26,11 +25,7 @@ public class CamShake : MonoBehaviour
 
     public void ShakeCamera4()
     {
-        if (!isTweening)
-        {
-            camStartPos = transform.position;
-            isTweening = true;
-        }
+        tweening = true;
         LeanTween.moveX(gameObject, transform.position.x - 0.7f, 0.04f);
         LeanTween.moveY(gameObject, transform.position.y - 0.4f, 0.1f).setOnComplete(ResetCamPos);
     }
@@ -38,6 +33,6 @@ public class CamShake : MonoBehaviour
     public void ResetCamPos()
     {
         LeanTween.move(gameObject, camStartPos, 0.1f);
-        isTweening = false;
+        tweening = false;
     }
 }
