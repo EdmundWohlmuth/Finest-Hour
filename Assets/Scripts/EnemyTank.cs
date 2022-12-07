@@ -13,6 +13,7 @@ public class EnemyTank : MonoBehaviour
     public GameObject valor;
     public GameObject flash;
     public GameObject explosion;
+    public CamShake camShake;
 
     [Header("Audio")]
     public GameObject audioManager;
@@ -35,6 +36,7 @@ public class EnemyTank : MonoBehaviour
     bool canShoot;
     float reloadTime = 1.5f;
 
+    [Header("Misc")]
     private Vector3 lastKnownPos;
     public GameObject chasis;
     public Color dmgColor;
@@ -167,7 +169,8 @@ public class EnemyTank : MonoBehaviour
         health -= damageDelt;
         if (health <= 0)
         {
-            InstantiateValor();           
+            InstantiateValor();
+            camShake.ShakeCameraStart();
             GameObject boom = Instantiate(explosion);
             boom.transform.position = transform.position;
             Destroy(gameObject);

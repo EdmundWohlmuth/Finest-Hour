@@ -39,6 +39,8 @@ public class StaticEmplacement : MonoBehaviour
     public Color dmgColor;
     public Color baseColor;
 
+    public CamShake camShake;
+
     public enum Facing
     {
         down,
@@ -235,6 +237,7 @@ public class StaticEmplacement : MonoBehaviour
         {
             health = 0;
             InstantiateValor();
+            camShake.ShakeCameraStart();
             GameObject boom = Instantiate(explosion);
             boom.transform.position = transform.position;
             Destroy(bodyCollider);

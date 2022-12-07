@@ -18,6 +18,9 @@ public class TakeDamage : MonoBehaviour
     public GameObject uIManager;
     public UIManager UI;
 
+    [Header("CamShake")]
+    public CamShake camShake;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -42,7 +45,7 @@ public class TakeDamage : MonoBehaviour
             damageDelt = collision.GetComponent<BulletScript>().damage;
 
             ReduceHealth(damageDelt);
-            //LeanTween here
+            camShake.ShakeCamera4();
             StartCoroutine(ShowDamage());
         }
     }
