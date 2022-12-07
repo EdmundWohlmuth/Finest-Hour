@@ -20,19 +20,18 @@ public class CamShake : MonoBehaviour
 
     public void ShakeCamera3()
     {
-        LeanTween.moveX(gameObject, transform.position.x + 0.5f, 0.1f).setOnComplete(ShakeCamera4);
+        LeanTween.moveX(gameObject, transform.position.x + 0.5f, 0.15f).setOnComplete(ShakeCamera4);
     }
 
     public void ShakeCamera4()
     {
         tweening = true;
-        LeanTween.moveX(gameObject, transform.position.x - 0.7f, 0.04f);
-        LeanTween.moveY(gameObject, transform.position.y - 0.4f, 0.1f).setOnComplete(ResetCamPos);
+        LeanTween.moveX(gameObject, transform.position.x - 0.7f, 0.1f);
+        LeanTween.moveY(gameObject, transform.position.y - 0.4f, 0.08f).setOnComplete(ResetCamPos);
     }
 
     public void ResetCamPos()
     {
-        LeanTween.move(gameObject, camStartPos, 0.1f);
         tweening = false;
     }
 }

@@ -197,4 +197,9 @@ public class UpgradesScreen : MonoBehaviour
             valorButton.interactable = false;
         }
     }
+
+    void AddEffects()
+    {
+
+    }
 }
