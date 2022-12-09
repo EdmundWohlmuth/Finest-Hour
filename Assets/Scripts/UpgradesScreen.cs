@@ -8,6 +8,8 @@ public class UpgradesScreen : MonoBehaviour
     [Header("Refrences")]
     public GameObject gameManager;
     private GameManager GM;
+    public AudioManager AM;
+    public AudioSource source;
 
     [Header("Price Lists")]
     public List<int> fuelPrices = new List<int>(6);    
@@ -57,11 +59,13 @@ public class UpgradesScreen : MonoBehaviour
     public Button reloadButton;
     public Button valorButton;
 
+    // declare button on button press
+    Button button;
+
 
     private void Start()
     {
-        // THIS ENTIRE .CS FILE NEEDS TO BE REWORKED, LOTS OF REPEAT CODE - Edmund: 22-11-15
-        GM = gameManager.GetComponent<GameManager>();       
+        GM = gameManager.GetComponent<GameManager>();
     }
 
     private void Update()
@@ -74,9 +78,13 @@ public class UpgradesScreen : MonoBehaviour
     {
         if (GM.totalValor >= fuelPrices[fuelStep])
         {
+            button = fuelButton;
+
             GM.maxFuel += fuelIncrease;
             GM.totalValor -= fuelPrices[fuelStep];
             fuelStep++;
+
+            ButtonEffects();
         }
     }
 
@@ -84,9 +92,13 @@ public class UpgradesScreen : MonoBehaviour
     {
         if (GM.totalValor >= speedPrices[speedStep])
         {
+            button = engineButton;
+
             GM.speed += speedStepIncrease;
             GM.totalValor -= speedPrices[speedStep];
             speedStep++;
+
+            ButtonEffects();
         }
     }
 
@@ -94,9 +106,13 @@ public class UpgradesScreen : MonoBehaviour
     {
         if (GM.totalValor >= damagePrices[DamageStep])
         {
+            button = damageButton;
+
             GM.damageValue += DamageStepIncrease;
             GM.totalValor -= damagePrices[DamageStep];
             DamageStep++;
+
+            ButtonEffects();
         }
     }
 
@@ -104,9 +120,13 @@ public class UpgradesScreen : MonoBehaviour
     {
         if (GM.totalValor >= healthPrices[HealthStep])
         {
+            button = armorButton;
+
             GM.maxHealth += healthStepIncrease;
             GM.totalValor -= healthPrices[HealthStep];
             HealthStep++;
+
+            ButtonEffects();
         }
     }
 
@@ -114,9 +134,13 @@ public class UpgradesScreen : MonoBehaviour
     {
         if (GM.totalValor >= turretPrices[turretStep])
         {
+            button = turretButton;
+
             GM.turretRotationSpeed += turretStepIncrease;
             GM.totalValor -= turretPrices[turretStep];
             turretStep++;
+
+            ButtonEffects();
         }
     }
 
@@ -124,9 +148,13 @@ public class UpgradesScreen : MonoBehaviour
     {
         if (GM.totalValor >= rotationPrices[rotateStep])
         {
+            button = chasisButton;
+
             GM.rotationSpeed += rotationStepIncrease;
             GM.totalValor -= rotationPrices[rotateStep];
             rotateStep++;
+
+            ButtonEffects();
         }
     }
 
@@ -134,9 +162,13 @@ public class UpgradesScreen : MonoBehaviour
     {
         if (GM.totalValor >= ReloadPrices[reloadStep])
         {
+            button = reloadButton;
+
             GM.reloadSpeed += reloadStepIncrease;
             GM.totalValor -= ReloadPrices[reloadStep];
             reloadStep++;
+
+            ButtonEffects();
         }
     }
 
@@ -144,9 +176,13 @@ public class UpgradesScreen : MonoBehaviour
     {
         if (GM.totalValor >= valorPrices[valorStep])
         {
+            button = valorButton;
+
             GM.valorMultiplier += valorStepIncrease;
             GM.totalValor -= valorPrices[valorStep];
             valorStep++;
+
+            ButtonEffects();
         }
     }
 
@@ -198,8 +234,22 @@ public class UpgradesScreen : MonoBehaviour
         }
     }
 
-    void AddEffects()
+    void ButtonEffects()
     {
+        AM.PlayButtonSound(source);
 
+        int id = LeanTween.scale(button.gameObject, new Vector3(.85f, .85f, .85f), .1f).id;
+
+        LTDescr d = LeanTween.descr(id);
+
+        if (d != null)
+        {
+            d.setOnComplete(ButtonEffects2);
+        }
+    }
+
+    void ButtonEffects2()
+    {
+        LeanTween.scale(button.gameObject, new Vector3(1, 1, 1), .1f);
     }
 }

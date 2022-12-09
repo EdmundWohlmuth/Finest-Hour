@@ -25,9 +25,9 @@ public class AudioManager : MonoBehaviour
     public AudioSource playerTurret;
     public AudioSource playerTank;
 
-    public void PlayButtonSound()
+    public void PlayButtonSound(AudioSource source)
     {
-        buttonPress.PlayOneShot(buttonDown);
+        source.PlayOneShot(buttonDown);
     }
 
     public void PlayGunSoundL(AudioSource source)
